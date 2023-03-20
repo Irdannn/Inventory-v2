@@ -1,0 +1,67 @@
+<app-main-nav>
+  <div class="card">
+    <div class="card-details">
+      <p class="text-title">Detail Barang</p>
+      <p class="text-body">
+        <ul>
+          <li>
+            Id Barang : {{barangDetail.id_barang}}
+         </li>
+          <li>
+            Nama : {{barangDetail.nama_barang}}
+          </li>
+          <li>
+            Aksesoris : {{barangDetail.aksesoris}}
+          </li>
+          <li>
+            Fasilitas :  {{barangDetail.fasilitas}}
+          </li>
+          <li>
+            Ruangan/User: {{barangDetail.tempat}}
+          </li>
+          <li>
+            Kategori :  {{barangDetail.jenis}}
+          </li>
+          <li>
+            Jumlah Barang :  {{barangDetail.jumlah}}
+          </li>
+          <li>
+            Tahun pembelian: {{barangDetail.tahun}}
+          </li>
+          <li>
+            Sifat :  {{barangDetail.sifat}}
+          </li>
+          <li>
+            Kondisi :  {{barangDetail.kondisi}}
+          </li>
+        </ul>
+    </div>
+  </div>
+
+  <div class="container p-5">
+    <form #form="ngForm" (ngSubmit)="updateInventory()">
+      <div class="row">
+          <div class="col-25">
+            <label for="user">Pelapor</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="user" name="user" placeholder="Pelapor"  [(ngModel)]="barangDetail.user">
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="kondisi">Laporan</label>
+        </div>
+        <div class="col-75">
+          <textarea  name="kondisi" id="kondisi" [(ngModel)]="barangDetail.kondisi" placeholder="Laporan Kehilangan, rusak dll"></textarea>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <button type="submit">Simpan </button>
+        <br>
+        <br>             
+      </div>
+    </form>
+  </div>
+</app-main-nav>

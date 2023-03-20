@@ -1,0 +1,79 @@
+<app-main-nav>
+  <hr>
+  <div class="card">
+    <div class="card-details">
+      <p class="text-title">Detail Barang</p>
+      <p class="text-body">
+        <ul>
+          <li>
+            Id Barang : {{barangDetail.id_barang}}
+         </li>
+          <li>
+            Nama : {{barangDetail.nama_barang}}
+          </li>
+          <li>
+            Aksesoris : {{barangDetail.aksesoris}}
+          </li>
+          <li>
+            Fasilitas :  {{barangDetail.fasilitas}}
+          </li>
+          <li>
+            Ruangan/User: {{barangDetail.tempat}}
+          </li>
+          <li>
+            Kategori :  {{barangDetail.jenis}}
+          </li>
+          <li>
+            Jumlah Barang :  {{barangDetail.jumlah}}
+          </li>
+          <li>
+            Tahun pembelian: {{barangDetail.tahun}}
+          </li>
+          <li>
+            Sifat :  {{barangDetail.sifat}}
+          </li>
+          <li>
+            Kondisi :  {{barangDetail.kondisi}}
+          </li>
+        </ul>
+    </div>
+  </div>
+
+  <div class="container p-5">
+    <form #form="ngForm" (ngSubmit)="updateInventory()">
+      <div class="row">
+          <div class="col-25">
+            <label for="user">Peminjam</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="user" name="user" [(ngModel)]="barangDetail.user">
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="kondisi">Keperluan Pinjam</label>
+        </div>
+        <div class="col-75">
+          <input type="text" name="kondisi" id="kondisi"  [(ngModel)]="barangDetail.kondisi">
+          <input type="text" name="kondisi" id="kondisi">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="waktumeminjam"> Waktu Peminjaman</label>
+        </div>
+        <div class="col-75">
+          <input type="datetime-local" name="waktumeminjam" id="waktumeminjam" [(ngModel)]="barangDetail.waktumeminjam">
+          <span>   Sampai dengan    </span>
+          <input type="datetime-local" name="waktukembali" id="waktukembali" [(ngModel)]="barangDetail.waktukembali">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <button type="submit">Simpan</button>
+        <br>
+        <br>             
+      </div>
+    </form>
+  </div>
+</app-main-nav>

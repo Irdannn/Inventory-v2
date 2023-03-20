@@ -1,0 +1,163 @@
+<app-main-nav>
+  <!-- <ng-container *ngIf="role === 'Admin'"> -->
+    <ng-container>
+  <hr>
+<div class="container p-5">
+    <form (ngSubmit)="updateInventory()">
+    
+      <div class="row">
+        <div class="col-25">
+          <label for="id_barang">Id Barang</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="id_barang" name="id_barang" readonly [(ngModel)]="barangDetail.id_barang" required> 
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="nama_barang">Nama Barang</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="nama_barang" name="nama_barang" [(ngModel)]="barangDetail.nama_barang" required> 
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="aksesoris">Aksesoris</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="aksesoris" name="aksesoris" [(ngModel)]="barangDetail.aksesoris"> 
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="fasilitas">Gedung</label>
+      </div>
+      <div class="col-75">
+        <select id="fasilitas" name="fasilitas" [(ngModel)]="barangDetail.fasilitas" required>
+          <option value="Gedung Janti">Gedung Janti</option>
+          <option value="Gedung Keben">Gedung Keben</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="ruangan">Ruangan</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="ruangan" name="ruangan" [(ngModel)]="barangDetail.tempat" required>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="tahun">Tahun Pembelian</label>
+      </div>
+      <div class="col-75">
+        <select id="tahun" name="tahun" [(ngModel)]="barangDetail.tahun" required>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+          <option value="2019">2019</option>
+          <option value="2018">2018</option>
+          <option value="2017">2017</option>
+          <option value="2016">2016</option>
+          <option value="2015">2015</option>
+          <option value="2014">2014</option>
+          <option value="2013">2013</option>
+          <option value="2012">2012</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="jenis">Jenis Barang</label>
+      </div>
+      <div class="col-75">
+        <select id="jenis" name="jenis" [(ngModel)]="barangDetail.jenis" required>
+          <option value="Aksesoris">Aksesoris</option>
+          <option value="ART">ART</option>
+          <option value="Elektronik">Elektronik</option>
+          <option value="Mabel">Mabel</option>
+          <option value="Media Pembelajaran">Media Pembelajaran</option>
+          <option value="Buku">Buku</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-25">
+          <label for="jumlah">Jumlah Barang</label>
+        </div>
+        <div class="col-75">
+          <input type="number" id="jumlah" name="jumlah" placeholder="Masukan Jumlah Barang.." min="1" [(ngModel)]="barangDetail.jumlah" required>
+        </div>
+      </div>
+
+    <div class="row">
+        <div class="col-25">
+          <label for="dana">Asal Dana</label>
+        </div>
+        <div class="col-75">
+          <select id="dana" name="dana" [(ngModel)]="barangDetail.dana" required>
+            <option value="Bosnas">BOSNAS</option>
+            <option value="Bosda">BOSDA</option>
+            <option value="Hibah">BOP</option>
+            <option value="DPP">DPP</option>
+            <option value="Hadiah">Hadiah</option>
+            <option value="Yayasan">Yayasan</option>
+          </select>
+        </div>
+      </div>
+
+    <div class="row">
+        <div class="col-25">
+          <label for="sifat">Barang Tetap/ Barang Habis</label>
+        </div>
+        <div class="col-75">
+          <select id="sifat" name="sifat" [(ngModel)]="barangDetail.sifat" required>
+            <option value="Tetap">Tetap</option>
+            <option value="Habis">Habis</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-25">
+          <label for="kondisi">Kondisi</label>
+        </div>
+        <div class="col-75">
+          <select id="kondisi" name="kondisi" [(ngModel)]="barangDetail.kondisi" required>
+            <option value="Baik">Baik</option>
+            <option value="Rusak">Rusak</option>
+            <option value="Dalam Perbaikan">Dalam Perbaikan</option>
+          </select>
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="harga">Perkiraan Harga Barang</label>
+      </div>
+      <div class="col-75">
+        <input type="number" id="harga" name="harga" placeholder="Perkiraan Harga" min="1"  [(ngModel)]="barangDetail.harga">
+      </div>
+    </div> 
+
+    <div class="row">
+      <button type="submit" class="half-button"> Save </button>
+      <button type="submit" class="half-button" (click)="deleteInventory(barangDetail.id_barang)"> Delete </button>
+
+
+      
+    </div>
+    </form>
+    </div>
+  </ng-container>
+</app-main-nav>

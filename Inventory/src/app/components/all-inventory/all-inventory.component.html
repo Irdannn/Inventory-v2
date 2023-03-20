@@ -1,0 +1,76 @@
+<app-main-nav id="nav">
+    <!-- <ng-container *ngIf="role === 'Admin'"> -->
+        <ng-container>
+        <hr>
+        <div class="row">
+            <div class="inputGroup">
+                <input type="text" autocomplete="off" placeholder="Cari disini" [(ngModel)]="searchText">
+                <button class="button-excell"routerLink="/printAllCard">Print Label</button>
+                <button class="button-excell" (click)="exportedexcel()">Export ke Excel</button>    
+            </div>
+        </div>
+        <table class="table table-striped" id="product">
+            <thead class="thead-dark">
+                <tr>
+                    <th (click)="sort('id_barang')" scope="col">ID</th>
+                    <th (click)="sort('nama_barang')" scope="col">Nama</th>
+                    <th (click)="sort('aksesoris')" scope="col">Aksesoris</th>
+                    <th (click)="sort('fasilitas')" scope="col">Fasilitas</th>
+                    <th (click)="sort('jenis')" scope="col">Jenis</th>
+                    <th (click)="sort('tempat')" scope="col">Tempat</th>
+                    <th (click)="sort('jumlah')" scope="col">Jumlah</th>
+                    <th (click)="sort('harga')" scope="col">Harga</th>
+                    <th (click)="sort('tahun')" scope="col">Tahun</th>
+                    <th (click)="sort('dana')" scope="col">Dana</th>
+                    <th (click)="sort('sifat')" scope="col">Sifat</th>
+                    <th (click)="sort('kondisi')" scope="col">Kondisi</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let barang of listBarang | orderBy: key:reverse | filter:searchText">
+                    <td>
+                        {{barang.id_barang}}
+                    </td>
+                    <td>
+                        {{barang.nama_barang}}
+                    </td>
+                    <td>
+                        {{barang.aksesoris}}
+                    </td>
+                    <td>
+                        {{barang.fasilitas}}
+                    </td>
+                    <td>
+                        {{barang.jenis}}
+                    </td>
+                    <td>
+                        {{barang.tempat}}
+                    </td>
+                    <td>
+                        {{barang.jumlah}}
+                    </td>  
+                    <td>
+                        {{barang.harga | currency:'Rp':'symbol':'1.0-0'}}
+                    </td>
+                    <td>
+                        {{barang.tahun}}
+                    </td>
+                    <td>
+                        {{barang.dana}}
+                    </td>
+                    <td>
+                        {{barang.sifat}}
+                    </td>
+                    <td>
+                        {{barang.kondisi}}
+                    </td>
+                    <td id="button-table" scope="row"> 
+                        <button type="button" [routerLink]="['edit', barang.id_barang]">Edit</button>                        
+                        <button type="button" [routerLink]="['printcard', barang.id_barang]">print</button>                       
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+</app-main-nav>
