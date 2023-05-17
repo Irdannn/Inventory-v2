@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+body { 
+    margin: 0; 
+    font-family: poppins;
+    background-color: aliceblue;
+    color: black
+}
+
+h1 {
+    font-weight: 600;
+    color: rgb(20, 20, 20);
+}
+
+p {
+    color: rgb(20, 20, 20);
+}
+
+    
+* {
+    box-sizing: border-box;
+    font-size: 17px;
+}
+@import url('assets/css/defautLayout.css');
+@import url('assets/css/Loginregister.css');
+@import url('assets/css/component.css');
+@import url('assets/css/form.css');

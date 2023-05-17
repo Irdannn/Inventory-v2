@@ -1,0 +1,17 @@
+<header class="header">
+    <div class="logo">Effs Student</div>
+    <div class="profile">
+        <div class="message">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+        </div>
+        <div  class="profile-photo">
+            <img mat-button [matMenuTriggerFor]="Menu" src="assets/img/ird.png" alt="Profile Photo">
+            <mat-menu #Menu="matMenu" xPosition="after">
+                <div mat-menu-item class="dropdown-item" routerLink="/profile">Profile</div>
+                <div mat-menu-item class="dropdown-item">Settings</div>
+                <div (click)="logout()" mat-menu-item class="dropdown-item">Logout</div>
+            </mat-menu>
+        </div>
+        <div mat-button [matMenuTriggerFor]="Menu" class="profile-name">{{fullName}}</div>
+    </div>
+</header>

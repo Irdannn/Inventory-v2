@@ -3,54 +3,82 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cookie;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
-use Symfony\Component\HttpFoundation\Response;
-
+use Laravel\Passport\Passport;
 class AuthController extends Controller
 {
-    public function register(Request $request)
-    {
-        return User::create([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => Hash::make($request->input('password'))
+    public function __construct(){
+        $this->middleware('auth:api', ['except' =>  ['login', 'register']]);
+    }
+    public function register(Request $request){
+        $validator = Validator::make($request->all(),[
+            'name' => 'required',
+            'role' => 'required',
+            'email' => 'required|string|email',
+            'password'=>'required|string|min:6'
         ]);
-    }
-
-    public function login(Request $request)
-    {
-        if (!Auth::attempt($request->only('email', 'password'))) {
-            return response([
-                'message' => 'Invalid credentials!'
-            ], Response::HTTP_UNAUTHORIZED);
+        if($validator->fails()){
+            return response()->json($validator->errors()->toJson(),400);
         }
-
-        $user = Auth::user();
-
-        $token = $user->createToken('token')->plainTextToken;
-
-        $cookie = cookie('jwt', $token, 60 * 24); // 1 day
-
-        return response([
-            'message' => $token
-        ])->withCookie($cookie);
+        $user = User::create(array_merge(
+            $validator->validated(),
+            ['password'=>bcrypt($request->password)]
+        ));
+        return response()->json([
+            'message'=>'User successfully registered',
+            'user'=>$user
+        ], 201);
     }
 
-
-    public function user()
-    {
-        return Auth::user();
+    public function login(Request $request){
+        $validator = Validator::make($request->all(),[
+            'email' => 'required|email',
+            'password'=>'required|string|min:6'
+        ]);
+        if($validator->fails()){
+            return response()->json($validator->errors(),422);
+        }
+        if(!$token=auth()->attempt($validator->validated())){
+            return response()->json(['error'=>'Unauthorized'], 401);
+        }
+        return $this->createNewToken($token);
+        //return $token;
     }
 
-    public function logout()
-    {
-        $cookie = Cookie::forget('jwt');
+    public function createNewToken($token){
+        try {
+            $guardConfig = config('auth.defaults.guard');
+            $ttl = config("auth.guards.$guardConfig.expiration") * 60;
+            return response()->json([
+                'accessToken'=> $token,
+                'token_type'=> 'Bearer',
+                'expires_in'=> $ttl,
+            ]);
+        } catch (\Exception $e) {
+            // Handle the error by logging it or returning an error response
+            logger()->error('Error creating new token: ' . $e->getMessage());
+            return response()->json(['error' => 'Failed to create new token'], 500);
+        }
+    }
+    
+    // public function refresh($token)
+    // {
+    //     return response()->json([
+    //         'refreshToken'=> $token,
+    //         'token_type'=> 'Bearer'
+    //     ]);
+    // }
 
-        return response([
-            'message' => 'Success'
-        ])->withCookie($cookie);
+    public function profile(){
+        return response()->json(auth()->user());
+    }
+    public function logout(){
+        auth()->logout();
+        return response()->json([
+            'message'=>'User Logout'
+        ]);
     }
 }
