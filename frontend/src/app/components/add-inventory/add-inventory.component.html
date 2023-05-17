@@ -1,0 +1,200 @@
+
+    <!-- <ng-container *ngIf="role === 'Admin'"> -->
+      <ng-container>
+      <hr>
+      <div class="row">
+        <div class="cube" routerLink="/addkaryawan">
+          <span class="side top">Fasilitas Karyawan</span>
+          <span class="side front">Fasilitas Umum</span>
+        </div>
+      </div>
+      
+      <div class="container p-5">
+        <form [formGroup]="addInventoryForm">
+          <div class="row">
+            <div class="col-25">
+              <label for="nama_barang">Nama Barang</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="nama_barang" name="nama_barang" placeholder="Nama Barang ..."  formControlName="nama_barang" required>
+            </div>
+          </div>
+  
+          
+          <div class="row">
+            <div class="col-25">
+              <label for="aksesoris">Aksesoris</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="aksesoris" name="aksesoris" placeholder="Aksesoris dari barang"  formControlName="aksesoris">
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-25">
+              <label for="gedung">Fasilitas</label>
+            </div>
+            <div class="col-75">
+              <select id="fasilitas" name="fasilitas" formControlName="fasilitas" required>
+                <option value="Gedung Janti">Gedung Janti</option>
+                <option value="Gedung Keben">Gedung Keben</option>
+              </select>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-25">
+              <label for="tempat">Ruangan</label>
+            </div>
+            <div class="col-75">
+              <select  id="tempat" name="tempat" formControlName="tempat" required>
+                <option value="Ahmad Dahlan">Ahmad Dahlan</option>
+                <option value="AH Nasution">AH Nasutution</option>
+                <option value="BCIM">BCIM</option>
+                <option value="Buya Hamka">Buya Hamka</option>
+                <option value="Dapur">Dapur</option>
+                <option value="Pangeran Diponegoro">Pangeran Diponegoro</option>
+                <option value="Gazebo">Gajebo</option>
+                <option value="Gudang 1">Gudang 1</option>
+                <option value="Gudang 2">Gudang 2</option>
+                <option value="Gudang 3">Gudang 3</option>
+                <option value="Gudang 2 Timur">Gudang 2 Timur</option>
+                <option value="Gudang Masjid">Gudang Masjid</option>
+                <option value="Hasanudin">Hasanudin</option>
+                <option value="Hasyim asyari">Hasyim Asy'ari</option>
+                <option value="IR Soekarno">IR Soekarno</option>
+                <option value="Jend Sudirman">Jendral Sudirman</option>
+                <option value="Kamar Kkecil 1">Kamar Kecil 1</option>
+                <option value="Kamar Kecil 2">Kamar Kecil 2</option>
+                <option value="Kamar Kecil 3">Kamar Kecil 3</option>
+                <option value="Kantor">Kantor</option>
+                <option value="Kamar Kecil Masjid 1">KC Masjid 1</option>
+                <option value="Kamar Kecil Masjid 2">KC Masjid 2</option>
+                <option value="KH Idham Chalid">KH Idham Chalid</option>
+                <option value="Ki Hajar Dewantara">Ki Hajar Dewantara</option>
+                <option value="Koridor1">Koridor 1</option>
+                <option value="Koridor2">Koridor 2</option>
+                <option value="Koridor3">Koridor 3</option>
+                <option value="Masjid">Masjid</option>
+                <option value="MBC">MBC</option>
+                <option value="Parkir1">Parkir 1</option>
+                <option value="Perpus">Perpus</option>
+                <option value="Ruang Satpam">Ruang Satpam</option>
+                <option value="Studio">Studio</option>
+                <option value="Ruang Tunggu">Ruang Tunggu</option>
+                <option value="Ruang Keuangan">Ruang Keuangan</option>
+                <option value="Ruang Kepala">Ruang Kepala</option>
+                <option value="Ruang Quran">Ruang Al-Quran</option>
+                <option value="Ruang Wudhu1">Ruang Wudhu 1</option>
+                <option value="Wahab Hasbullah">KH Wahab Hasbullah</option>
+                <option value="Wahid Hasyim">Wahid Hasyim</option>
+              </select>
+            </div>
+          </div>
+        
+          <div class="row">
+            <div class="col-25">
+              <label for="tahun">Tahun Pembelian</label>
+            </div>
+            <div class="col-75">
+              <select id="tahun" name="tahun" formControlName="tahun">
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+                <option value="2015">2015</option>
+                <option value="2014">2014</option>
+                <option value="2013">2013</option>
+                <option value="2012">2012</option>
+              </select>
+            </div>
+          </div>
+        
+          <div class="row">
+            <div class="col-25">
+              <label for="jenis">Jenis Barang</label>
+            </div>
+            <div class="col-75">
+              <select id="jenis" name="jenis" formControlName="jenis" required>
+                <option value="Aksesoris">Aksesoris</option>
+                <option value="ART">ART</option>
+                <option value="Elektronik">Elektronik</option>
+                <option value="Mabel">Mabel</option>
+                <option value="Media Pembelajaran">Media Pembelajaran</option>
+                <option value="Buku">Buku</option>
+              </select>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-25">
+              <label for="jumlah">Jumlah Barang</label>
+            </div>
+            <div class="col-75">
+              <input type="number" id="jumlah" name="jumlah" placeholder="Masukan Jumlah (Nomor Saja)" min="1"  formControlName="jumlah" required>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-25">
+              <label for="dana">Asal Dana</label>
+            </div>
+            <div class="col-75">
+              <select id="dana" name="dana" formControlName="dana">
+                <option value="Bosnas">BOSNAS</option>
+                <option value="Bosda">BOSDA</option>
+                <option value="Hibah">BOP</option>
+                <option value="DPP">DPP</option>
+                <option value="Hadiah">Hadiah</option>
+                <option value="Yayasan">Yayasan</option>
+              </select>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-25">
+              <label for="sifat">Barang Tetap/ Barang Habis</label>
+            </div>
+            <div class="col-75">
+              <select id="sifat" name="sifat" formControlName="sifat" required>
+                <option value="Habis">Habis</option>
+                <option value="Tetap">Tetap</option>
+              </select>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-25">
+              <label for="kondisi">Kondisi</label>
+            </div>
+            <div class="col-75">
+              <select id="kondisi" name="kondisi" formControlName="kondisi" required>
+                <option value="Baik">Baik</option>
+                <option value="Rusak">Rusak</option>
+                <option value="Dalam Perbaikan">Dalam Perbaikan</option>
+              </select>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-25">
+              <label for="harga">Perkiraan Harga Barang</label>
+            </div>
+            <div class="col-75">
+              <input type="number" id="harga" name="harga" placeholder="Perkiraan Harga" min="1"  formControlName="harga">
+            </div>
+          </div>
+  
+            <br>
+          <div class="row">
+            <button type="submit" (click)="onAddInventory()"> Tambah Barang </button>
+            <br>
+            <br>      
+          </div>
+        </form>
+      </div>
+    </ng-container>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { BarangApiService } from 'src/app/services/barang-api.service';
 import { UserStoreService } from 'src/app/services/user-store.service';
+import { Barang } from 'src/app/models/barang';
 
 @Component({
   selector: 'app-dashboard-admin',
@@ -9,19 +11,25 @@ import { UserStoreService } from 'src/app/services/user-store.service';
   styleUrls: ['./dashboard-admin.component.css']
 })
 export class DashboardAdminComponent implements OnInit {
+
+  public listBarang = [];
+  searchText!: string;
+  barang: any;
+
   public users:any = [];
   public role!:string;
 
   public fullName:string = "";
   constructor(
-    private api : ApiService, 
+    private authapi : ApiService, 
     private auth: AuthService,
-    private userStore: UserStoreService
+    private userStore: UserStoreService,
+    private api : BarangApiService
     ) { }
 
 
   ngOnInit() {
-    this.api.getUsers()
+    this.authapi.getUsers()
     .subscribe(res=>{
       this.users = res;
     })
@@ -30,6 +38,10 @@ export class DashboardAdminComponent implements OnInit {
       const rolefromToken = this.auth.getRoleFromToken();
       this.role = val || rolefromToken
     })
+    this.api.getAllInventory()
+    .subscribe(res => {
+      this.listBarang = res;
+    });
   }
 
   logout() {

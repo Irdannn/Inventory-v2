@@ -1,0 +1,31 @@
+<div class="container">
+    <button (click)="printThisPage()">Print</button>   
+    <div class="printcard">
+      <div>
+        <qr-code value="https://inventory.insanmuliamalang.sch.id/view/{{barang.id_barang}}" size="150" errorCorrectionLevel="L"></qr-code>
+      </div>
+      <div class="printcardDetail">
+          <div class="footcard">
+              <p>Properti Milik YIM Malang</p>
+          </div>
+          <ul>
+            <li>
+                Nama : {{barang.nama_barang}}
+            </li>
+            <li>
+              Aksesoris : {{barang.aksesoris}}
+            </li>
+            <li>
+              Fasilitas :  {{barang.fasilitas}}
+            </li>
+            <li>
+              Ruangan/User: {{barang.tempat}}
+            </li>
+            <li>
+              Kategori :  {{barang.jenis}}
+            </li>
+        </ul>
+      </div>
+    </div>
+    <button routerLink="/allinventory"> Kembali </button>  
+  </div>

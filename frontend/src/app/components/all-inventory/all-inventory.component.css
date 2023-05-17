@@ -1,0 +1,44 @@
+button {
+    width: 6vw;
+    height: 5vh;
+    border-radius: 20px;
+}
+.table {
+  font-size: 0.9rem;
+}
+.inputGroup {
+    display: flex;
+    flex-direction: row;
+}
+.button-excell{
+    width: 11vw;
+    height: 6vh;
+}
+
+#button-table{
+  display: flex;
+  flex-direction: column;
+}
+
+#load{
+  margin: auto;
+  cursor: pointer;
+}
+
+.pagination{
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 767px) {
+    .table {
+      font-size: 0.9rem;
+    }
+    button {
+      width: max-content;
+      height: max-content;
+    }
+    .button-excell{
+        width: 20vw;
+    }
+  }

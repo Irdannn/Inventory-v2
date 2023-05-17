@@ -1,0 +1,44 @@
+    <hr>
+    <div class="row">
+        <div class="inputGroup">
+            <input type="text" autocomplete="off" placeholder="Cari disini" [(ngModel)]="searchText">
+            <button class="button-excell" (click)="exportedexcel()">Export ke Excel</button>    
+        </div>
+    </div>
+    <table class="table table-striped" id="product">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id Barang</th>
+                <th scope="col">Nama Barang</th>
+                <th scope="col">User</th>
+                <th scope="col">Keperluan Pinjam</th>
+                <th scope="col">Laporan</th>
+                <th scope="col">Waktu Peminjaman</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let alur of listAlur">
+                <td>
+                    {{alur.id_barang}}
+                </td>
+                <td>
+                    {{alur.nama_barang}}
+                </td>
+                <td>
+                    {{alur.user}}
+                </td>
+                <td>
+                    {{alur.keterangan_pinjam}}
+                </td>
+                <td>
+                    {{alur.laporan}}
+                </td>
+                <td>
+                <div *ngIf="alur.waktupinjam !== '0000-00-00 00:00:00' && alur.waktukembali  !== '0000-00-00 00:00:00'">
+                    {{alur.waktupinjam}} s/d 
+                    {{alur.waktukembali}}
+                </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>

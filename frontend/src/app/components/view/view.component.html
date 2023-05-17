@@ -1,0 +1,45 @@
+
+    <div class="container">
+      <div class="card">
+        <div class="card-details">
+          <p class="text-title">Detail Barang</p>
+          <p class="text-body">
+          <ul>
+            <li>
+              Id Barang : {{barang.id_barang}}
+            </li>
+            <li>
+              Nama : {{barang.nama_barang}}
+            </li>
+            <li>
+              Aksesoris : {{barang.aksesoris}}
+            </li>
+            <li>
+              Fasilitas :  {{barang.fasilitas}}
+            </li>
+            <li>
+              Ruangan/User: {{barang.tempat}}
+            </li>
+            <li>
+              Kategori :  {{barang.jenis}}
+            </li>
+            <li>
+              Jumlah Barang :  {{barang.jumlah}}
+            </li>
+            <li>
+              Tahun pembelian: {{barang.tahun}}
+            </li>
+            <li>
+              Sifat :  {{barang.sifat}}
+            </li>
+            <li>
+              Kondisi :  {{barang.kondisi}}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <button [routerLink]="['peminjaman']" class="half-button">Peminjaman</button>
+        <button [routerLink]="['laporan']" class="half-button">Laporan</button>
+      </div>
+    </div>

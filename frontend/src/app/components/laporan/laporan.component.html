@@ -1,0 +1,81 @@
+    <div class="card">
+      <div class="card-details">
+        <p class="text-title">Detail Barang</p>
+        <p class="text-body">
+          <ul>
+            <li>
+              Id Barang : {{barang.id_barang}}
+           </li>
+            <li>
+              Nama : {{barang.nama_barang}}
+            </li>
+            <li>
+              Aksesoris : {{barang.aksesoris}}
+            </li>
+            <li>
+              Fasilitas :  {{barang.fasilitas}}
+            </li>
+            <li>
+              Ruangan/User: {{barang.tempat}}
+            </li>
+            <li>
+              Kategori :  {{barang.jenis}}
+            </li>
+            <li>
+              Jumlah Barang :  {{barang.jumlah}}
+            </li>
+            <li>
+              Tahun pembelian: {{barang.tahun}}
+            </li>
+            <li>
+              Sifat :  {{barang.sifat}}
+            </li>
+            <li>
+              Kondisi :  {{barang.kondisi}}
+            </li>
+          </ul>
+      </div>
+    </div>
+  
+    <div class="container p-5">
+      <form #form="ngForm" [formGroup]="addAlurBarangForm">
+        <div class="row">
+          <div class="col-25">
+            <label for="id_barang">ID Barang</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="id_barang" id="id_barang" required readonly formControlName="id_barang" [(ngModel)]="barang.id_barang">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="nama_barang">Nama Barang</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="nama_barang" id="nama_barang" required readonly formControlName="nama_barang" [(ngModel)]="barang.nama_barang">
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+              <label for="user">Pelapor</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="user" autocomplete="off" name="user" placeholder="Pelapor"  formControlName="user">
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="laporan">Laporan</label>
+          </div>
+          <div class="col-75">
+            <textarea  name="laporan" id="laporan" formControlName="laporan" placeholder="Laporan Kehilangan, rusak dll"></textarea>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <button (click)="onAddAlurbarang()" type="submit">Simpan </button>
+          <br>
+          <br>             
+        </div>
+      </form>
+    </div>
