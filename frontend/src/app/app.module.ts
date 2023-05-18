@@ -36,6 +36,7 @@ import { PrintAllCardComponent } from './components/print-all-card/print-all-car
 import { PrintcardComponent } from './components/printcard/printcard.component';
 import { ViewComponent } from './components/view/view.component';
 import { EditComponent } from './components/edit/edit.component';
+import { TutorialComponent } from './components/tutorial/tutorial.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { EditComponent } from './components/edit/edit.component';
     PrintcardComponent,
     ViewComponent,
     EditComponent,
+    TutorialComponent,
   ],
   imports: [
     BrowserModule,

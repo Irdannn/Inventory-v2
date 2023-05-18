@@ -6,6 +6,16 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AuthGuard } from './guards/auth.guard';
 import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-admin.component';
+import { AddInventoryComponent } from './components/add-inventory/add-inventory.component';
+import { AddInventoryKaryawanComponent } from './components/add-inventory-karyawan/add-inventory-karyawan.component';
+import { AllInventoryComponent } from './components/all-inventory/all-inventory.component';
+import { DatapeminjamanComponent } from './components/datapeminjaman/datapeminjaman.component';
+import { EditComponent } from './components/edit/edit.component';
+import { LaporanComponent } from './components/laporan/laporan.component';
+import { PeminjamanComponent } from './components/peminjaman/peminjaman.component';
+import { PrintcardComponent } from './components/printcard/printcard.component';
+import { ViewComponent } from './components/view/view.component';
+import { TutorialComponent } from './components/tutorial/tutorial.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch: 'full'},
@@ -13,7 +23,18 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'dashboard', component: DashboardAdminComponent, canActivate:[AuthGuard]},
   {path: 'header', component: SidebarComponents, canActivate:[AuthGuard]},
-  {path: 'profile', component: ProfileComponent, canActivate:[AuthGuard]}
+  {path: 'profile', component: ProfileComponent, canActivate:[AuthGuard]},
+  {path: 'add', component: AddInventoryComponent, canActivate:[AuthGuard]},
+  {path: 'addkaryawan', component: AddInventoryKaryawanComponent, canActivate:[AuthGuard]},
+  {path: 'allinventory', component: AllInventoryComponent, canActivate:[AuthGuard]},
+  {path: 'datapeminjaman', component: DatapeminjamanComponent, canActivate:[AuthGuard]},
+  {path: 'edit', component: EditComponent, canActivate:[AuthGuard]},
+  {path: 'laporan', component: LaporanComponent, canActivate:[AuthGuard]},
+  {path: 'peminjaman', component: PeminjamanComponent, canActivate:[AuthGuard]},
+  {path: 'printall', component: PrintcardComponent, canActivate:[AuthGuard]},
+  {path: 'print', component: PrintcardComponent, canActivate:[AuthGuard]},
+  {path: 'view', component: ViewComponent, canActivate:[AuthGuard]},
+  {path: 'tutorial', component: TutorialComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

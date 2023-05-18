@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: row;
     z-index: 0;
+    margin-left: 5vw;
 }
 
 .header {
@@ -33,7 +34,7 @@
 
 
 .box {
-    background-color: #fff;
+    background-color: transparent;
     color: #fff;
     font-size: 150%;
 }

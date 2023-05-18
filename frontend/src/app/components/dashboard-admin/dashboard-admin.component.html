@@ -1,48 +1,35 @@
-<app-header class="sticky"></app-header>
-<div class="overlay"></div>
-<div class="wrapper">
-    <div class="box header">
-        
-    </div>
-    <div class="box sidebar">
-        <app-sidebar></app-sidebar>
-    </div>
-    <!-- <ng-container *ngIf="role === 'Admin'"> -->
-    <div *ngIf="role === 'Admin'" class="box content">
-        <div class="row">
-            <div class="inputGroup">
-                <input type="text" autocomplete="off" placeholder="Cari disini" [(ngModel)]="searchText">
-            </div>
+<!-- <div *ngIf="role === 'Admin'" class="box content"> -->
+<div class="box content">
+    <div class="row">
+        <div class="inputGroup">
+            <input type="text" autocomplete="off" placeholder="Cari disini" [(ngModel)]="searchText">
         </div>
-        <table class="table table-striped" id="product">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Id Barang</th>
-                    <th scope="col">Nama Barang</th>
-                    <th scope="col">Kondisi</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let barang of listBarang | filter:searchText">
-                    <td>
-                        {{barang.id_barang}}
-                    </td>
-                    <td>
-                        {{barang.nama_barang}}
-                    </td>
-                    <td>
-                        {{barang.kondisi}}
-                    </td>
-                    <td id="button-table" scope="row">
-                        <button [routerLink]="['peminjaman', barang.id_barang]">Peminjaman</button>               
-                        <button [routerLink]="['laporan', barang.id_barang]">Laporan</button>               
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    <!-- </ng-container> -->
-    <div class="box footer">
-        <app-footer></app-footer>
     </div>
+    <table class="table table-striped" id="product">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id Barang</th>
+                <th scope="col">Nama Barang</th>
+                <th scope="col">Kondisi</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let barang of listBarang | filter:searchText">
+                <td>
+                    {{barang.id_barang}}
+                </td>
+                <td>
+                    {{barang.nama_barang}}
+                </td>
+                <td>
+                    {{barang.kondisi}}
+                </td>
+                <td id="button-table" scope="row">
+                    <button [routerLink]="['peminjaman', barang.id_barang]">Peminjaman</button>               
+                    <button [routerLink]="['laporan', barang.id_barang]">Laporan</button>               
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

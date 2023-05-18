@@ -5,19 +5,19 @@ export const navbarData = [
         label: 'Dashboard'
     },
     {
-        routeLink: '/daftarsiswa',
+        routeLink: '/allinventory',
         icon: 'fal fa-user',
-        label: 'Daftar Siswa'
+        label: 'List Barang'
     },
     {
-        routeLink: '/daftarwali',
+        routeLink: '/add',
         icon: 'fal fa-users',
-        label: 'Daftar Wali Siswa'
+        label: 'Tambah Barang'
     },
     {
-        routeLink: '/inputnilai',
+        routeLink: '/edit',
         icon: 'fal fa-pencil-square',
-        label: 'Input Nilai'
+        label: 'Edit Barang'
     },
     {
         routeLink: '/tutorial',

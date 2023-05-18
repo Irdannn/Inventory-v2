@@ -1,2 +1,19 @@
-<router-outlet></router-outlet>
-<lib-ng-toast></lib-ng-toast>
+<app-header class="sticky"></app-header>
+<div class="overlay"></div>
+<div class="wrapper">
+    <div class="box header">
+        
+    </div>
+    <div class="box sidebar">
+        <app-sidebar></app-sidebar>
+    </div>
+    <!-- <ng-container *ngIf="role === 'Admin'"> -->
+    <div class="box content">
+        <router-outlet></router-outlet>
+    </div>
+    <!-- </ng-container> -->
+    <div class="box footer">
+        <app-footer></app-footer>
+    </div>
+</div>
+
