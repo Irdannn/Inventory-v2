@@ -14,7 +14,7 @@ export class DashboardAdminComponent implements OnInit {
 
   public listBarang = [];
   searchText!: string;
-  barang: any;
+  barang!: Barang;
 
   public users:any = [];
   public role!:string;

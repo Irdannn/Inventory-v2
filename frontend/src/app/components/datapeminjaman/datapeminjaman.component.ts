@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlurBarang } from 'src/app/models/alurbarang';
 import { AlurbarangService } from 'src/app/services/alurbarang.service';
 import *as XLSX from 'xlsx';
 
@@ -9,6 +10,8 @@ import *as XLSX from 'xlsx';
 })
 export class DatapeminjamanComponent implements OnInit {
   public listAlur = [];
+  alur!: AlurBarang;
+  
   searchText!: string;
   fileName='Data Peminjaman dan Laporan.xlsx';
 

@@ -10,14 +10,13 @@ import { NgToastModule  } from 'ng-angular-popup';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 //import { JwtHelperService } from '@auth0/angular-jwt';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { QrCodeModule } from 'ng-qrcode';
 import { NgxPrintModule } from 'ngx-print';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+//import { QrCodeModule } from 'ng-qrcode';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -72,11 +71,11 @@ import { EditComponent } from './components/edit/edit.component';
     MatMenuModule,
     FormsModule,
     CommonModule,
-    QrCodeModule,
     NgxPrintModule,
-    //Ng2SearchPipeModule,
+    Ng2SearchPipeModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    //QrCodeModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

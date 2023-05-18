@@ -17,9 +17,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor = "let alur of listAlur">
+            <tr *ngFor = "let alur of listAlur | filter:searchText">
                 <td>
-                    {{alur.id_barang}}
+                    {{alur.alurID}}
                 </td>
                 <td>
                     {{alur.nama_barang}}

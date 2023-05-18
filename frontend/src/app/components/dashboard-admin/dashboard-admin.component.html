@@ -24,8 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- <tr *ngFor = "let barang of listBarang | filter:searchText"> -->
-                    <tr *ngFor = "let barang of listBarang">
+                <tr *ngFor = "let barang of listBarang | filter:searchText">
                     <td>
                         {{barang.id_barang}}
                     </td>
