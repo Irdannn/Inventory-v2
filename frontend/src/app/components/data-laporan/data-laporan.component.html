@@ -1,3 +1,35 @@
 <app-sidebar>
-<p>data-laporan works!</p>
-</app-sidebar>
+    <hr>
+       <div class="row">
+           <div class="inputGroup">
+               <input type="text" autocomplete="off" placeholder="Cari disini" [(ngModel)]="searchText">
+               <button class="button-excell" (click)="exportedexcel()">Export ke Excel</button>    
+           </div>
+       </div>
+       <table class="table table-striped" id="product">
+           <thead class="thead-dark">
+               <tr>
+                   <th scope="col">Id Barang</th>
+                   <th scope="col">Nama Barang</th>
+                   <th scope="col">User</th>
+                   <th scope="col">Laporan</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr *ngFor = "let lapor of listLaporan | filter:searchText">
+                   <td>
+                       {{lapor.id}}
+                   </td>
+                   <td>
+                       {{lapor.nama_barang}}
+                   </td>
+                   <td>
+                       {{lapor.nama_user}}
+                   </td>
+                   <td>
+                       {{lapor.laporan}}
+                   </td>
+               </tr>
+           </tbody>
+       </table>
+   </app-sidebar>

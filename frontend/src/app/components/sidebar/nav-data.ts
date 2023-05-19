@@ -15,9 +15,9 @@ export const navbarData = [
         label: 'Tambah Barang'
     },
     {
-        routeLink: '/edit',
+        routeLink: '/datapeminjaman',
         icon: 'fal fa-pencil-square',
-        label: 'Edit Barang'
+        label: 'Data'
     },
     {
         routeLink: '/tutorial',
