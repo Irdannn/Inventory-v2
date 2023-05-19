@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Barang } from 'src/app/models/barang';
 import { BarangApiService } from 'src/app/services/barang-api.service';
+import * as QRCodeGenerator from 'qrcode-generator';
 
 @Component({
   selector: 'app-printcard',
@@ -10,11 +11,15 @@ import { BarangApiService } from 'src/app/services/barang-api.service';
 })
 export class PrintcardComponent implements OnInit {
   barang:Barang  = new Barang();
+  qrData: string = `https://inventory.insanmuliamalang.sch.id/view/${this.barang.id}`;
+  qrCodeImage!: string;
 
   constructor(
     private api: BarangApiService,
     private route : ActivatedRoute,
-  ){}
+  ){
+
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe({
@@ -30,7 +35,12 @@ export class PrintcardComponent implements OnInit {
           })
         }
       }
-    })
+    });
+    const qr = QRCodeGenerator(4, 'L');
+    qr.addData(this.qrData);
+    qr.make();
+
+    this.qrCodeImage = qr.createDataURL();
   }
 
   printThisPage(){

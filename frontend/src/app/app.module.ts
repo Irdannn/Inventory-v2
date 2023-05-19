@@ -16,7 +16,6 @@ import { NgxPrintModule } from 'ngx-print';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
-//import { QrCodeModule } from 'ng-qrcode';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -78,8 +77,7 @@ import { DataLaporanComponent } from './components/data-laporan/data-laporan.com
     NgxPrintModule,
     Ng2SearchPipeModule,
     MatTableModule,
-    MatPaginatorModule,
-    //QrCodeModule
+    MatPaginatorModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
