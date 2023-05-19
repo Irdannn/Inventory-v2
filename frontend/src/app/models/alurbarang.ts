@@ -1,21 +1,21 @@
 export class AlurBarang{
-    alurID: number;
-    keterangan_pinjam:string;   
-    user:string;
+    id: number;
+    id_user: number;   
+    nama_user:string;
+    nama_barang: string;
+    id_barang: number;
+    keterangan_pinjam:string;
     waktupinjam:"dd-MM-yyyy";
     waktukembali:"dd-MM-yyyy";
-    id_barang : number;
-    laporan: string;
-    nama_barang: string;
 
     constructor(){
-        this.alurID=0;
+        this.id=0;
+        this.id_user=0;
+        this.nama_user="";
+        this.id_barang= 0;
+        this.nama_barang="";
         this.keterangan_pinjam="";
-        this.user="";
         this.waktupinjam="dd-MM-yyyy";
         this.waktukembali="dd-MM-yyyy";
-        this.id_barang= 0;
-        this.laporan="";
-        this.nama_barang="";
     }
 }

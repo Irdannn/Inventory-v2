@@ -37,6 +37,7 @@ import { PrintcardComponent } from './components/printcard/printcard.component';
 import { ViewComponent } from './components/view/view.component';
 import { EditComponent } from './components/edit/edit.component';
 import { TutorialComponent } from './components/tutorial/tutorial.component';
+import { DataLaporanComponent } from './components/data-laporan/data-laporan.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { TutorialComponent } from './components/tutorial/tutorial.component';
     ViewComponent,
     EditComponent,
     TutorialComponent,
+    DataLaporanComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Passport\Passport;
+use Tymon\JWTAuth\Facades\JWTAuth;
 class AuthController extends Controller
 {
     public function __construct(){
@@ -51,7 +52,7 @@ class AuthController extends Controller
     public function createNewToken($token){
         try {
             $guardConfig = config('auth.defaults.guard');
-            $ttl = config("auth.guards.$guardConfig.expiration") * 60;
+            $ttl = config("auth.guards.$guardConfig.expiration") * 1;
             return response()->json([
                 'accessToken'=> $token,
                 'token_type'=> 'Bearer',
@@ -71,6 +72,16 @@ class AuthController extends Controller
     //         'token_type'=> 'Bearer'
     //     ]);
     // }
+
+    public function refresh()
+{
+    $token = JWTAuth::parseToken()->refresh();
+
+    return response()->json([
+        'refreshToken' => $token,
+        'token_type'=> 'Bearer'
+    ]);
+}
 
     public function profile(){
         return response()->json(auth()->user());

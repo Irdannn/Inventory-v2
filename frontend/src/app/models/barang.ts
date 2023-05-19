@@ -1,5 +1,5 @@
 export class Barang{
-    id_barang : number;
+    id : number;
     nama_barang:string;
 	fasilitas:string;
     tempat:string;
@@ -11,9 +11,10 @@ export class Barang{
     jumlah:number;
     harga: number;
     aksesoris: string;
+    unit:string;
 
     constructor(){
-        this.id_barang= 0;
+        this.id= 0;
         this.nama_barang="";
         this.fasilitas="";
         this.tempat="";
@@ -25,5 +26,6 @@ export class Barang{
         this.jumlah=0;
         this.harga=0;
         this.aksesoris="";
+        this.unit="";
     }
 }

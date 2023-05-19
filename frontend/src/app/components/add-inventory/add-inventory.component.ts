@@ -39,12 +39,6 @@ ngOnInit(): void {
     kondisi: ['', Validators.required],
     harga: [0],
   });
-
-  // this.userStore.getFullNameFromStore()
-  // .subscribe(val=> {
-  //   // const rolefromToken = this.auth.getRoleFromToken();
-  //   // this.role = val || rolefromToken
-  // })
 }
 
 onAddInventory(){
@@ -62,7 +56,6 @@ onAddInventory(){
       }
     })
   } else {
-    console.log("form is not valid")
     // check if the form is invalid
     ValidateForm.validateAllformsFields(this.addInventoryForm);
     this.toast.error({detail: "ERROR", summary:"Input Invalid, pastikan semua sudah diisi", duration: 5000});

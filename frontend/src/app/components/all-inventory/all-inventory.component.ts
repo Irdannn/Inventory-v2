@@ -43,7 +43,7 @@ export class AllInventoryComponent implements OnInit {
     XLSX.writeFile(wb, this.fileName);
   }
   
-  key ='id_barang';
+  key ='id';
   reverse=false;
   sort(key:string){
     this.key=key;

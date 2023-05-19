@@ -50,14 +50,14 @@ export class EditComponent implements OnInit{
 
   updateInventory(){
     console.log(this.barang);
-    this.api.updateBarang(this.barang.id_barang, this.barang)
+    this.api.updateBarang(this.barang.id, this.barang)
     .subscribe({
       next: () => {
         this.router.navigate(['allinventory'])
         this.toast.success({detail: "BERHASIL", summary:"Barang berhasil dirubah", duration: 5000});
       },
       error:()=> {
-        this.toast.error({detail: "Error", summary:"Gagal update barang", duration: 5000});
+        //this.toast.error({detail: "Error", summary:"Gagal update barang", duration: 5000});
       }
     })
   }

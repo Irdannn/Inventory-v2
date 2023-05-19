@@ -8,21 +8,21 @@ import { Observable } from 'rxjs';
 })
 export class BarangApiService {
 
-  private baseurl = "https://inventory.insanmuliamalang.sch.id/inventoryapi/";
+  private baseurl = "http://127.0.0.1:8000/api/inventory/";
   constructor(private http : HttpClient) { 
     
   }
 
   getAllInventory(){
-    return this.http.get<any>(`${this.baseurl}readall.php`);
+    return this.http.get<any>(`${this.baseurl}index`);
   }
 
   addProduct(inventoryObj:any){
-    return this.http.post<any>(`${this.baseurl}create.php`, inventoryObj)
+    return this.http.post<any>(`${this.baseurl}store`, inventoryObj)
   }
 
   getInventory(id_barang: string): Observable<Barang> {
-    return this.http.get<Barang>(`${this.baseurl}read.php?id_barang=`+ id_barang);
+    return this.http.get<Barang>(`${this.baseurl}show/`+ id_barang);
   }
 
   getInventorybycategory(category: string): Observable<Barang> {
@@ -34,7 +34,7 @@ export class BarangApiService {
   // }
 
   updateBarang(id_barang: number, barang: Barang): Observable<Barang>{
-    return this.http.put<Barang>(`${this.baseurl}update.php?id_barang=`+ id_barang, barang);
+    return this.http.put<Barang>(`${this.baseurl}update/`+ id_barang, barang);
   }
 
   // updateBarang(barang: Barang): Observable<Barang> {
@@ -42,7 +42,7 @@ export class BarangApiService {
   // }
   
   deleteBarang(id_barang: number): Observable<Barang> {
-    return this.http.delete<Barang>(`${this.baseurl}delete.php?id_barang=`+ id_barang);
+    return this.http.delete<Barang>(`${this.baseurl}destroy/`+ id_barang);
   }
 
 }

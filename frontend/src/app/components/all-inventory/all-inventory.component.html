@@ -1,6 +1,6 @@
 <app-sidebar>
     <!-- <ng-container *ngIf="role === 'Admin'"> -->
-        <ng-container>
+        <div>
         <hr>
         <div class="row">
             <div class="inputGroup">
@@ -31,11 +31,11 @@
                 <!-- <tr *ngFor = "let barang of listBarang | filter:searchText"> -->
                     <tr *ngFor = "let barang of listBarang">
                     <td>
-                        {{barang.id_barang}}
+                        {{barang.id}}
                     </td>
                     <td id="button-table" scope="row"> 
-                        <button type="button" [routerLink]="['edit', barang.id_barang]">Edit</button>                        
-                        <button type="button" [routerLink]="['printcard', barang.id_barang]">print</button>
+                        <button type="button" [routerLink]="['edit', barang.id]">Edit</button>                        
+                        <button type="button" [routerLink]="['printcard', barang.id]">print</button>
                         <!-- <button type="button" [routerLink]="['printcard', barang.id_barang]">+-</button>                          -->
                     </td>
                     <td>
@@ -74,5 +74,5 @@
                 </tr>                
             </tbody>
         </table>
-    </ng-container>
+    </div>
 </app-sidebar>

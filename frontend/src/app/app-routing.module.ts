@@ -16,6 +16,7 @@ import { PeminjamanComponent } from './components/peminjaman/peminjaman.componen
 import { PrintcardComponent } from './components/printcard/printcard.component';
 import { ViewComponent } from './components/view/view.component';
 import { TutorialComponent } from './components/tutorial/tutorial.component';
+import { DataLaporanComponent } from './components/data-laporan/data-laporan.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch: 'full'},
@@ -28,13 +29,20 @@ const routes: Routes = [
   {path: 'addkaryawan', component: AddInventoryKaryawanComponent, canActivate:[AuthGuard]},
   {path: 'allinventory', component: AllInventoryComponent, canActivate:[AuthGuard]},
   {path: 'datapeminjaman', component: DatapeminjamanComponent, canActivate:[AuthGuard]},
-  {path: 'edit', component: EditComponent, canActivate:[AuthGuard]},
+  {path: 'allinventory/edit/:idBarang', component: EditComponent, canActivate: [AuthGuard]},
+  {path: 'allinventory/printcard/:idBarang', component: PrintcardComponent, canActivate: [AuthGuard]},
+  {path: 'dashboard/peminjaman/:idBarang', component: PeminjamanComponent, canActivate: [AuthGuard]},
+  {path: 'dashboard/laporan/:idBarang', component: LaporanComponent, canActivate: [AuthGuard]},
   {path: 'laporan', component: LaporanComponent, canActivate:[AuthGuard]},
   {path: 'peminjaman', component: PeminjamanComponent, canActivate:[AuthGuard]},
   {path: 'printall', component: PrintcardComponent, canActivate:[AuthGuard]},
   {path: 'print', component: PrintcardComponent, canActivate:[AuthGuard]},
   {path: 'view', component: ViewComponent, canActivate:[AuthGuard]},
-  {path: 'tutorial', component: TutorialComponent, canActivate: [AuthGuard]}
+  {path: 'view/:idBarang', component: ViewComponent, canActivate: [AuthGuard]},
+  {path: 'view/:idBarang/laporan', component: LaporanComponent, canActivate: [AuthGuard]},
+  {path: 'view/:idBarang/peminjaman', component: PeminjamanComponent, canActivate: [AuthGuard]},
+  {path: 'tutorial', component: TutorialComponent, canActivate: [AuthGuard]},
+  {path: 'data-laporan', component: DataLaporanComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
