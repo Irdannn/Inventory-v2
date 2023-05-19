@@ -30,7 +30,7 @@ export class TokenInterceptor implements HttpInterceptor {
         if(err instanceof HttpErrorResponse) {
           if(err.status === 401) {
             //this.toast.warning({detail: "Warning", summary: "Token is expired, Login again"});
-            //this.router.navigate(['login'])
+            this.router.navigate(['login'])
             //handle
             return this.handleUnAuthorizeError(request,next)
           }

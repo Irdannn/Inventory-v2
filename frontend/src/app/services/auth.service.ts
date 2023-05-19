@@ -58,6 +58,11 @@ export class AuthService {
     return this.userPayLoad.name;
   }
 
+  getIdFromToken(): any{
+    if(this.userPayLoad)
+    return this.userPayLoad.id;
+  }
+
   getRoleFromToken(){
     if(this.userPayLoad)
     return this.userPayLoad.role;

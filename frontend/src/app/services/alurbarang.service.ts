@@ -8,26 +8,26 @@ import { AlurBarang } from '../models/alurbarang';
 })
 export class AlurbarangService {
 
-  private baseurl = "https://inventory.insanmuliamalang.sch.id/alurbarang/";
+  private baseurl = "http://127.0.0.1:8000/api/alur/"; 
   constructor( private http : HttpClient) { }
 
   getAllalurbarang(){
-    return this.http.get<any>(`${this.baseurl}readall.php`);
+    return this.http.get<any>(`${this.baseurl}index`);
   }
 
   addAlurbarang(alurbarangObj:any){
-    return this.http.post<any>(`${this.baseurl}create.php`, alurbarangObj)
+    return this.http.post<any>(`${this.baseurl}store`, alurbarangObj)
   }
 
-  getAlurbarang(alurID: string): Observable<AlurBarang> {
-    return this.http.get<AlurBarang>(`${this.baseurl}read.php?alurID=`+ alurID);
+  getAlurbarang(id: number): Observable<AlurBarang> {
+    return this.http.get<AlurBarang>(`${this.baseurl}show/`+ id);
   }
 
-  updateAlurbarang(alurID: number, AlurBarang: AlurBarang): Observable<AlurBarang>{
-    return this.http.put<AlurBarang>(`${this.baseurl}update.php?alurID=`+ alurID, AlurBarang);
+  updateAlurbarang(id: number, AlurBarang: AlurBarang): Observable<AlurBarang>{
+    return this.http.put<AlurBarang>(`${this.baseurl}update/`+ id, AlurBarang);
   }
   
-  deleteAlurbarang(alurID: number): Observable<AlurBarang> {
-    return this.http.delete<AlurBarang>(`${this.baseurl}delete.php?alurID=`+ alurID);
+  deleteAlurbarang(id: number): Observable<AlurBarang> {
+    return this.http.delete<AlurBarang>(`${this.baseurl}destroy`+ id);
   }
 }

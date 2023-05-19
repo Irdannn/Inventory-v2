@@ -17,7 +17,11 @@ export class HeaderComponent implements OnInit {
   public role!:string;
 
   public fullName:string = "";
-  constructor(private api : ApiService, private auth: AuthService, private userStore: UserStoreService, private router: Router) { }
+  constructor(
+    private api : ApiService, 
+    private auth: AuthService, 
+    private userStore: UserStoreService, 
+    private router: Router) { }
 
 
   ngOnInit() {

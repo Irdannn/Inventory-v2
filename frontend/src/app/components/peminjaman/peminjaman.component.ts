@@ -7,6 +7,8 @@ import { AlurbarangService } from 'src/app/services/alurbarang.service';
 import { AlurBarang } from 'src/app/models/alurbarang';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import ValidateForm from 'src/app/helpers/validateform';
+import { UserStoreService } from 'src/app/services/user-store.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-peminjaman',
@@ -18,13 +20,18 @@ export class PeminjamanComponent implements OnInit {
   alurbarang: AlurBarang = new AlurBarang();
   addAlurBarangForm!: FormGroup;
 
+  public fullName:string = "";
+  public id:string = "";
+
   constructor(
     private api: BarangApiService,
     private router : Router,
     private toast : NgToastService,
     private route: ActivatedRoute,
     private alurapi: AlurbarangService,
-    private fb : FormBuilder
+    private fb : FormBuilder,
+    private userStore: UserStoreService,
+    private auth: AuthService
   ){}
 
   ngOnInit(): void {
@@ -42,12 +49,23 @@ export class PeminjamanComponent implements OnInit {
       }
     });
     this.addAlurBarangForm = this.fb.group({
-      user: ['', Validators.required],
+      id_user:[Validators.required],
+      id_barang: [Validators.required],
+      nama_user: ['', Validators.required],
+      nama_barang: ['', Validators.required],
       keterangan_pinjam: ['', Validators.required],
       waktupinjam: ['', Validators.required],
-      waktukembali: ['', Validators.required],
-      id_barang: [Validators.required],
-      nama_barang: ['', Validators.required]
+      waktukembali: ['', Validators.required]
+    });
+    this.userStore.getFullNameFromStore()
+    .subscribe(val=>{
+      let fullNameFromToken = this.auth.getfullNameFromToken();
+      this.fullName = val || fullNameFromToken;
+    });
+    this.userStore.getIDFromStore()
+    .subscribe(val=>{
+      let idFromToken = this.auth.getIdFromToken()
+      this.id=val || idFromToken;
     })
   }
 
