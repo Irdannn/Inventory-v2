@@ -42,6 +42,14 @@
       <form #form="ngForm" [formGroup]="addAlurBarangForm">
         <div class="row">
           <div class="col-25">
+            <label for="id_user">ID User</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="id_user" id="id_user" required readonly formControlName="id_user" [(ngModel)]="id">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
             <label for="id_barang">ID Barang</label>
           </div>
           <div class="col-75">
@@ -57,12 +65,12 @@
           </div>
         </div>
         <div class="row">
-            <div class="col-25">
-              <label for="user">Pelapor</label>
-            </div>
-            <div class="col-75">
-              <input type="text" id="user" autocomplete="off" name="user" placeholder="Pelapor"  formControlName="user">
-            </div>
+          <div class="col-25">
+            <label for="nama_user">Pelapor</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="nama_user" id="nama_user" required readonly formControlName="nama_user" [(ngModel)]="fullName">
+          </div>
         </div>
         <div class="row">
           <div class="col-25">
