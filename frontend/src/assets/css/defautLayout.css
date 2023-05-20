@@ -7,9 +7,10 @@
 .content {
     grid-area: content;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     z-index: 1;
-    margin-left: 5vw;
+    margin-left: 2vw;
+    width: 90vw;
 }
 
 .header {
@@ -27,7 +28,7 @@
     "sidebar header header"
     "sidebar content content"
     "sidebar  footer  footer";
-    background-color: #fff;
+    background-color: aliceblue;
     color: #444;
     z-index: -1;
 }
@@ -35,13 +36,14 @@
 
 .box {
     background-color: transparent;
-    color: #fff;
+    color: aliceblue;
     font-size: 150%;
 }
 
 .head {
     color: black;
     width: 250px;
+    background-color: aliceblue;
 }
 
 .sticky {
@@ -54,7 +56,7 @@
 	width: 100vw;
 	height: 300px;
 	padding: 50px;
-	color: #FFF;
+	color: aliceblue;
 	text-shadow: 1px 1px 1px #333;
     background-image: linear-gradient( to bottom, #a0ce65 10%, #f2f8a1 100%);
 	border-radius: 0 0 85% 85% / 80%;

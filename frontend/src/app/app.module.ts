@@ -83,8 +83,8 @@ import { ScannerComponent } from './components/scanner/scanner.component';
     Ng2SearchPipeModule,
     MatTableModule,
     MatPaginatorModule,
+    WebcamModule,
     QrCodeModule,
-    WebcamModule
     // ZXingScannerModule
   ],
   providers: [{

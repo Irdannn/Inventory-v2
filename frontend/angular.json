@@ -25,6 +25,11 @@
               "src/assets",
               {
                 "glob": "**/*",
+                "input": "./node_modules/dynamsoft-javascript-barcode/dist",
+                "output": "assets/dynamsoft-javascript-barcode"
+              },
+              {
+                "glob": "**/*",
                 "input": "node_modules/ngx-scanner-qrcode/wasm/",
                 "output": "./assets/wasm/"
               }

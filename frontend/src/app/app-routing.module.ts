@@ -45,7 +45,9 @@ const routes: Routes = [
   {path: 'view/:idBarang/peminjaman', component: PeminjamanComponent, canActivate: [AuthGuard]},
   {path: 'tutorial', component: TutorialComponent, canActivate: [AuthGuard]},
   {path: 'data-laporan', component: DataLaporanComponent, canActivate: [AuthGuard]},
-  {path: 'scanner', component: ScannerComponent, canActivate: [AuthGuard]}
+  {path: 'scanner', component: ScannerComponent, canActivate: [AuthGuard]},
+  { path: 'barcode-reader', component: ScannerComponent },
+  { path: 'barcode-scanner', component: ScannerComponent },
 ];
 
 @NgModule({

@@ -1,38 +1,39 @@
-<!-- <div *ngIf="role === 'Admin'" class="box content"> -->
 <app-sidebar>
-      
-<div class="box content">
-    <div class="row">
+    <div class="box content">
         <div class="inputGroup">
             <input type="text" autocomplete="off" placeholder="Cari disini" [(ngModel)]="searchText">
+            <button routerLink="/scanner" class="button-excell">Scan</button> 
         </div>
+        <table class="table table-striped" id="product">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Id Barang</th>
+                    <th scope="col">Action</th>
+                    <th scope="col">Nama Barang</th>
+                    <th scope="col">Kondisi</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let barang of listBarang | filter:searchText">
+                    <td>
+                        {{barang.id}}
+                    </td>
+                    <td id="button-table" scope="row">
+                        <button [routerLink]="['peminjaman', barang.id]">Peminjaman</button>               
+                        <button [routerLink]="['laporan', barang.id]">Laporan</button>               
+                    </td>
+                    <td>
+                        {{barang.nama_barang}}
+                    </td>
+                    <td>
+                        {{barang.kondisi}}
+                    </td>
+                    <td>
+                        Dipinjam/Ready
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <table class="table table-striped" id="product">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">Id Barang</th>
-                <th scope="col">Nama Barang</th>
-                <th scope="col">Kondisi</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor = "let barang of listBarang | filter:searchText">
-                <td>
-                    {{barang.id}}
-                </td>
-                <td>
-                    {{barang.nama_barang}}
-                </td>
-                <td>
-                    {{barang.kondisi}}
-                </td>
-                <td id="button-table" scope="row">
-                    <button [routerLink]="['peminjaman', barang.id]">Peminjaman</button>               
-                    <button [routerLink]="['laporan', barang.id]">Laporan</button>               
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
 </app-sidebar>

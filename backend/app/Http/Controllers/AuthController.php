@@ -56,7 +56,7 @@ class AuthController extends Controller
             return response()->json([
                 'accessToken'=> $token,
                 'token_type'=> 'Bearer',
-                'expires_in'=> $ttl,
+                //'expires_in'=> $ttl,
             ]);
         } catch (\Exception $e) {
             // Handle the error by logging it or returning an error response
