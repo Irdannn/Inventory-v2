@@ -17,6 +17,8 @@ import { PrintcardComponent } from './components/printcard/printcard.component';
 import { ViewComponent } from './components/view/view.component';
 import { TutorialComponent } from './components/tutorial/tutorial.component';
 import { DataLaporanComponent } from './components/data-laporan/data-laporan.component';
+import { PrintAllCardComponent } from './components/print-all-card/print-all-card.component';
+import { ScannerComponent } from './components/scanner/scanner.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch: 'full'},
@@ -35,14 +37,15 @@ const routes: Routes = [
   {path: 'dashboard/laporan/:idBarang', component: LaporanComponent, canActivate: [AuthGuard]},
   {path: 'laporan', component: LaporanComponent, canActivate:[AuthGuard]},
   {path: 'peminjaman', component: PeminjamanComponent, canActivate:[AuthGuard]},
-  {path: 'printall', component: PrintcardComponent, canActivate:[AuthGuard]},
+  {path: 'printall', component: PrintAllCardComponent, canActivate:[AuthGuard]},
   {path: 'print', component: PrintcardComponent, canActivate:[AuthGuard]},
   {path: 'view', component: ViewComponent, canActivate:[AuthGuard]},
   {path: 'view/:idBarang', component: ViewComponent, canActivate: [AuthGuard]},
   {path: 'view/:idBarang/laporan', component: LaporanComponent, canActivate: [AuthGuard]},
   {path: 'view/:idBarang/peminjaman', component: PeminjamanComponent, canActivate: [AuthGuard]},
   {path: 'tutorial', component: TutorialComponent, canActivate: [AuthGuard]},
-  {path: 'data-laporan', component: DataLaporanComponent, canActivate: [AuthGuard]}
+  {path: 'data-laporan', component: DataLaporanComponent, canActivate: [AuthGuard]},
+  {path: 'scanner', component: ScannerComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

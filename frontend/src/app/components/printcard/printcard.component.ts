@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Barang } from 'src/app/models/barang';
 import { BarangApiService } from 'src/app/services/barang-api.service';
-import * as QRCodeGenerator from 'qrcode-generator';
 
 @Component({
   selector: 'app-printcard',
@@ -36,11 +35,6 @@ export class PrintcardComponent implements OnInit {
         }
       }
     });
-    const qr = QRCodeGenerator(4, 'L');
-    qr.addData(this.qrData);
-    qr.make();
-
-    this.qrCodeImage = qr.createDataURL();
   }
 
   printThisPage(){

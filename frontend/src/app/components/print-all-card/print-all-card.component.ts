@@ -8,8 +8,10 @@ import { BarangApiService } from 'src/app/services/barang-api.service';
 })
 export class PrintAllCardComponent implements OnInit {
   searchText!: string;
-  public listBarang= [];
-  
+  // public listBarang= [];
+  listBarang: any[] = [];
+
+  barang: any;
   constructor(
     private api : BarangApiService  
   ) { }

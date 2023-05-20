@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit{
           console.log(res.message);        
           this.loginForm.reset();
           this.auth.storeToken(res.accessToken);
-          //this.auth.storeRefreshToken(res.refreshToken);
+          this.auth.storeRefreshToken(res.refreshToken);
           let tokenPayload = this.auth.decodedToken();
           //this.userStore.setFullNameForStore(tokenPayload.name);
           //this.userStore.setRoleForStore(tokenPayload.role);

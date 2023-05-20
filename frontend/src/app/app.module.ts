@@ -16,6 +16,9 @@ import { NgxPrintModule } from 'ngx-print';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { QrCodeModule } from 'ng-qrcode';
+// import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { WebcamModule } from 'ngx-webcam';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -37,6 +40,7 @@ import { ViewComponent } from './components/view/view.component';
 import { EditComponent } from './components/edit/edit.component';
 import { TutorialComponent } from './components/tutorial/tutorial.component';
 import { DataLaporanComponent } from './components/data-laporan/data-laporan.component';
+import { ScannerComponent } from './components/scanner/scanner.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +64,7 @@ import { DataLaporanComponent } from './components/data-laporan/data-laporan.com
     EditComponent,
     TutorialComponent,
     DataLaporanComponent,
+    ScannerComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +82,10 @@ import { DataLaporanComponent } from './components/data-laporan/data-laporan.com
     NgxPrintModule,
     Ng2SearchPipeModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    QrCodeModule,
+    WebcamModule
+    // ZXingScannerModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

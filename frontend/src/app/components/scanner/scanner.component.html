@@ -1,0 +1,12 @@
+<div *ngIf="showScanner">
+    <webcam
+      [videoOptions]="videoOptions"
+      (imageCapture)="handleImage($event)"
+      (triggerSnap)="triggerSnapshot()"
+    ></webcam>
+  </div>
+  
+  <div *ngIf="capturedImage">
+    <p>QR Code Result:</p>
+    <img [src]="capturedImage" alt="Scanned QR Code" />
+  </div>
