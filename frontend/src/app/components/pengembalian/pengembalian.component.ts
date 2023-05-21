@@ -11,11 +11,11 @@ import { UserStoreService } from 'src/app/services/user-store.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-peminjaman',
-  templateUrl: './peminjaman.component.html',
-  styleUrls: ['./peminjaman.component.css']
+  selector: 'app-pengembalian',
+  templateUrl: './pengembalian.component.html',
+  styleUrls: ['./pengembalian.component.css']
 })
-export class PeminjamanComponent implements OnInit {
+export class PengembalianComponent {
   barang:Barang  = new Barang();
   alurbarang: AlurBarang = new AlurBarang();
   addAlurBarangForm!: FormGroup;
@@ -54,9 +54,8 @@ export class PeminjamanComponent implements OnInit {
       nama_user: ['', Validators.required],
       nama_barang: ['', Validators.required],
       keterangan_pinjam: ['', Validators.required],
-      waktupinjam: ['', Validators.required],
       waktukembali: ['', Validators.required],
-      status: ['Dipinjam', Validators.required]
+      status: ['Ready', Validators.required]
     });
     this.userStore.getFullNameFromStore()
     .subscribe(val=>{

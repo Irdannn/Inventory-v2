@@ -15,7 +15,8 @@ class alurbarang extends Model
         'nama_barang',
         'keterangan_pinjam',
         'waktupinjam',
-        'waktukembali'
+        'waktukembali',
+        'status'
     ];
 
     public function user()

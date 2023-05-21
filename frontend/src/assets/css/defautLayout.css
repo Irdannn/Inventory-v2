@@ -19,6 +19,7 @@
 
 .footer {
     grid-area: footer;
+    z-index: 2;
 }
 
 .wrapper {

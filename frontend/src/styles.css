@@ -4,12 +4,13 @@ body {
     margin: 0; 
     font-family: poppins;
     background-color: aliceblue;
-    color: black
+    color: black;
 }
 
 h1 {
     font-weight: 600;
     color: rgb(20, 20, 20);
+    font-size: 2rem;
 }
 
 p {

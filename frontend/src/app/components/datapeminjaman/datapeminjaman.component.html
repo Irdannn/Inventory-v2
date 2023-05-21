@@ -13,6 +13,7 @@
                 <th scope="col">Nama Barang</th>
                 <th scope="col">User</th>
                 <th scope="col">Keperluan Pinjam</th>
+                <th scope="col">Status</th>
                 <th scope="col">Waktu Peminjaman</th>
             </tr>
         </thead>
@@ -29,6 +30,9 @@
                 </td>
                 <td>
                     {{alur.keterangan_pinjam}}
+                </td>
+                <td>
+                    {{alur.status}}
                 </td>
                 <td>
                 <div *ngIf="alur.waktupinjam !== '0000-00-00 00:00:00' && alur.waktukembali  !== '0000-00-00 00:00:00'">

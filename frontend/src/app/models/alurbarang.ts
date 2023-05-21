@@ -7,6 +7,7 @@ export class AlurBarang{
     keterangan_pinjam:string;
     waktupinjam:"dd-MM-yyyy";
     waktukembali:"dd-MM-yyyy";
+    status: string;
 
     constructor(){
         this.id=0;
@@ -17,5 +18,6 @@ export class AlurBarang{
         this.keterangan_pinjam="";
         this.waktupinjam="dd-MM-yyyy";
         this.waktukembali="dd-MM-yyyy";
+        this.status="";
     }
 }

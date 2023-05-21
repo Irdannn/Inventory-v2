@@ -19,6 +19,7 @@ import { TutorialComponent } from './components/tutorial/tutorial.component';
 import { DataLaporanComponent } from './components/data-laporan/data-laporan.component';
 import { PrintAllCardComponent } from './components/print-all-card/print-all-card.component';
 import { ScannerComponent } from './components/scanner/scanner.component';
+import { PengembalianComponent } from './components/pengembalian/pengembalian.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch: 'full'},
@@ -46,8 +47,7 @@ const routes: Routes = [
   {path: 'tutorial', component: TutorialComponent, canActivate: [AuthGuard]},
   {path: 'data-laporan', component: DataLaporanComponent, canActivate: [AuthGuard]},
   {path: 'scanner', component: ScannerComponent, canActivate: [AuthGuard]},
-  { path: 'barcode-reader', component: ScannerComponent },
-  { path: 'barcode-scanner', component: ScannerComponent },
+  {path: 'kembali/:idBarang', component: PengembalianComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({

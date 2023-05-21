@@ -8,6 +8,7 @@
 
       <div class="container p-5">
         <form [formGroup]="addInventoryForm">
+          <h1>Form Input Barang</h1>
           <div class="row">
             <div class="col-25">
               <label for="nama_barang">Nama Barang</label>
@@ -33,8 +34,21 @@
             </div>
             <div class="col-75">
               <select id="fasilitas" name="fasilitas" formControlName="fasilitas" required>
-                <option value="Gedung Janti">Gedung Janti</option>
-                <option value="Gedung Keben">Gedung Keben</option>
+                <option value="Kampus 1">Kampus 1</option>
+                <option value="Kampus 2">Kampus 2</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+              <label for="unit">Unit</label>
+            </div>
+            <div class="col-75">
+              <select id="unit" name="unit" formControlName="unit" required>
+                <option value="SDIT">SDIT</option>
+                <option value="PAUD">PAUD</option>
+                <option value="SQA">SQA</option>
               </select>
             </div>
           </div>

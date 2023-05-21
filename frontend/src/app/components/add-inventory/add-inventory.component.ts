@@ -38,6 +38,7 @@ ngOnInit(): void {
     sifat: ['', Validators.required],
     kondisi: ['', Validators.required],
     harga: [0],
+    unit: ['', Validators.required]
   });
 }
 

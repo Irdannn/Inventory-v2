@@ -43,6 +43,7 @@ import { EditComponent } from './components/edit/edit.component';
 import { TutorialComponent } from './components/tutorial/tutorial.component';
 import { DataLaporanComponent } from './components/data-laporan/data-laporan.component';
 import { ScannerComponent } from './components/scanner/scanner.component';
+import { PengembalianComponent } from './components/pengembalian/pengembalian.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { ScannerComponent } from './components/scanner/scanner.component';
     TutorialComponent,
     DataLaporanComponent,
     ScannerComponent,
-    SafePipe
+    SafePipe,
+    PengembalianComponent
   ],
   imports: [
     BrowserModule,

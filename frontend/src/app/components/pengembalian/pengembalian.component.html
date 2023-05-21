@@ -73,7 +73,7 @@
       </div>
       <div class="row">
         <div class="col-25">
-          <label for="nama_user">Peminjam</label>
+          <label for="nama_user">Pengembali Barang</label>
         </div>
         <div class="col-75">
           <input type="text" name="nama_user" id="nama_user" required readonly formControlName="nama_user" [(ngModel)]="fullName">
@@ -81,19 +81,9 @@
       </div>
       <div class="row">
         <div class="col-25">
-          <label for="keterangan_pinjam">Keperluan Pinjam</label>
+          <label for="waktupinjam"> Waktu Mengembalikan</label>
         </div>
         <div class="col-75">
-          <input type="text" name="keterangan_pinjam" id="keterangan" formControlName="keterangan_pinjam" required>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-25">
-          <label for="waktupinjam"> Waktu Peminjaman</label>
-        </div>
-        <div class="col-75">
-          <input type="datetime-local" name="waktupinjam" id="waktupinjam" formControlName="waktupinjam" required>
-          <span>   Sampai dengan    </span>
           <input type="datetime-local" name="waktukembali" id="waktukembali" formControlName="waktukembali">
         </div>
       </div>

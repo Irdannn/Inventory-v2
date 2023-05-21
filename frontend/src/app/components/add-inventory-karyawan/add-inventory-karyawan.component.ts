@@ -36,6 +36,7 @@ export class AddInventoryKaryawanComponent implements OnInit {
       sifat: ['', Validators.required],
       kondisi: ['', Validators.required],
       harga: [0],
+      unit: ['', Validators.required]
     });
     // this.userStore.getFullNameFromStore()
     // .subscribe(val=> {
