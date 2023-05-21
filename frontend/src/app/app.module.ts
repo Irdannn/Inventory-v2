@@ -18,7 +18,9 @@ import { MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { QrCodeModule } from 'ng-qrcode';
 // import { ZXingScannerModule } from '@zxing/ngx-scanner';
-import { WebcamModule } from 'ngx-webcam';
+// import { WebcamModule } from 'ngx-webcam';
+// import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
+import { SafePipe } from './components/scanner/safe.pipe';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -65,6 +67,7 @@ import { ScannerComponent } from './components/scanner/scanner.component';
     TutorialComponent,
     DataLaporanComponent,
     ScannerComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
@@ -83,8 +86,9 @@ import { ScannerComponent } from './components/scanner/scanner.component';
     Ng2SearchPipeModule,
     MatTableModule,
     MatPaginatorModule,
-    WebcamModule,
+    //WebcamModule,
     QrCodeModule,
+    // NgxScannerQrcodeModule
     // ZXingScannerModule
   ],
   providers: [{

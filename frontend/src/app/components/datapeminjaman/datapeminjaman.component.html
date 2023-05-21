@@ -2,7 +2,7 @@
  <hr>
     <div class="row">
         <div class="inputGroup">
-            <input type="text" autocomplete="off" placeholder="Cari disini" [(ngModel)]="searchText">
+            <input id="searcInput" type="text" autocomplete="off" placeholder="Cari disini" [(ngModel)]="searchText">
             <button class="button-excell" (click)="exportedexcel()">Export ke Excel</button>    
         </div>
     </div>
@@ -13,7 +13,6 @@
                 <th scope="col">Nama Barang</th>
                 <th scope="col">User</th>
                 <th scope="col">Keperluan Pinjam</th>
-                <th scope="col">Laporan</th>
                 <th scope="col">Waktu Peminjaman</th>
             </tr>
         </thead>
@@ -30,9 +29,6 @@
                 </td>
                 <td>
                     {{alur.keterangan_pinjam}}
-                </td>
-                <td>
-                    {{alur.laporan}}
                 </td>
                 <td>
                 <div *ngIf="alur.waktupinjam !== '0000-00-00 00:00:00' && alur.waktukembali  !== '0000-00-00 00:00:00'">

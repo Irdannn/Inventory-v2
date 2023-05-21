@@ -2,13 +2,11 @@
     <!-- <ng-container *ngIf="role === 'Admin'"> -->
         <div>
         <hr>
-        <div class="row">
             <div class="inputGroup">
-                <input type="text" autocomplete="off" placeholder="Cari disini" [(ngModel)]="searchText">
+                <input id="searcInput" type="text" autocomplete="off" placeholder="Cari disini" [(ngModel)]="searchText">
                 <button class="button-excell"routerLink="/printall">Print Label</button>
                 <button class="button-excell" (click)="exportedexcel()">Export ke Excel</button>    
             </div>
-        </div>
         <table class="table table-striped" id="product">
             <thead class="thead-dark">
                 <tr>

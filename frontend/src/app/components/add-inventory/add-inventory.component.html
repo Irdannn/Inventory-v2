@@ -1,14 +1,11 @@
 <app-sidebar>
     <!-- <ng-container *ngIf="role === 'Admin'"> -->
     <div>
-      <hr>
-      <div class="row">
         <div class="cube" routerLink="/addkaryawan">
           <span class="side top">Fasilitas Karyawan</span>
           <span class="side front">Fasilitas Umum</span>
         </div>
-      </div>
-      
+
       <div class="container p-5">
         <form [formGroup]="addInventoryForm">
           <div class="row">
@@ -191,7 +188,7 @@
   
             <br>
           <div class="row">
-            <button type="submit" (click)="onAddInventory()"> Tambah Barang </button>
+            <button class="submitForm" type="submit" (click)="onAddInventory()"> Tambah Barang </button>
             <br>
             <br>      
           </div>

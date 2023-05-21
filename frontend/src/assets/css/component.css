@@ -26,7 +26,7 @@ button {
   justify-content: center;
   outline: none;
   cursor: pointer;
-  width: 8vw;
+  width: 10vw;
   height: 6vh;
   background-image: linear-gradient(to top, #f3e308 50%, #c2c9c28c 100%);
   border: 1px solid #8F9092;
@@ -58,21 +58,26 @@ button:focus {
 /* Seacrh-style */ 
 .inputGroup {
   font-family: 'Segoe UI', sans-serif;
-  margin: 1em 0 1em 0;
-  max-width: 290px;
+  margin: 1em ;
+  max-width: 600px;
   position: relative;
   display: flex;
   flex-direction: row;
+  align-content: center;
 }
 
 .inputGroup input {
   font-size: 100%;
-  padding: 0.8em;
+  padding: 2em;
   outline: none;
   border: 2px solid rgb(0, 0, 0);
   background-color: transparent;
-  border-radius: 20px;
   width: 30%;
+  height: 8vh;
+}
+
+#searcInput {
+  border-radius: 50px;
 }
 
 .inputGroup :is(input:focus, input:valid)~label {
@@ -110,6 +115,7 @@ button:focus {
   transform-origin: 100% 50%;
   width: 10em;
   height: 4em;
+  margin: 10px 10px 10px 40px;
  }
  
  .cube:hover {

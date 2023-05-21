@@ -6,13 +6,10 @@ button {
 .table {
   font-size: 0.9rem;
 }
-.inputGroup {
-    display: flex;
-    flex-direction: row;
-}
 .button-excell{
-    width: 11vw;
-    height: 6vh;
+    width: 28vw;
+    height: 7vh;
+    margin: 5px;
 }
 
 #button-table{
@@ -20,15 +17,6 @@ button {
   flex-direction: column;
 }
 
-#load{
-  margin: auto;
-  cursor: pointer;
-}
-
-.pagination{
-  display: flex;
-  flex-direction: row;
-}
 
 @media (max-width: 767px) {
     .table {
