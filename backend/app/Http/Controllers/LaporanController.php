@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\inventory;
 use App\Models\laporan;
 use Illuminate\Http\Request;
 
@@ -28,6 +29,10 @@ class LaporanController extends Controller
             'nama_barang' => $request->nama_barang,
             'laporan' => $request->laporan
         ]);
+        if ($request->has('id_barang')) {
+            $inventory = inventory::find($request->input('id_barang'));
+            $inventory->update(['kondisi' => $request->input('laporan')]);
+        }
         return $laporan;
     }
 
@@ -62,6 +67,10 @@ class LaporanController extends Controller
         $laporan->nama_barang = $request->input('nama_barang');
         $laporan->laporan = $request->input('laporan');
         $laporan->save();
+        if ($request->has('id_barang')) {
+            $inventory = inventory::find($request->input('id_barang'));
+            $inventory->update(['kondisi' => $request->input('laporan')]);
+        }
 
         return $laporan;
     }

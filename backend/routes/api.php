@@ -55,3 +55,13 @@ Route::group(['middleware' => 'api', 'prefix'=> 'laporan'], function($router){
     Route::patch('/update/{id}', [LaporanController::class, 'update']);
     Route::delete('/destroy/{id}', [LaporanController::class, 'destroy']);
 });
+
+Route::group(['middleware' => 'api', 'prefix'=> 'sop'], function($router){
+    Route::get('/index', [SopController::class, 'index']);
+    Route::post('/store', [SopController::class, 'store']);
+    Route::get('/show/{id}', [SopController::class, 'show']);
+    Route::put('/update', [SopController::class, 'update']);
+    Route::put('/update/{id}', [SopController::class, 'update']);
+    Route::patch('/update/{id}', [SopController::class, 'update']);
+    Route::delete('/destroy/{id}', [SopController::class, 'destroy']);
+});

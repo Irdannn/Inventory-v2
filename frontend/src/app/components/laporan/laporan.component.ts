@@ -75,7 +75,7 @@ export class LaporanComponent implements OnInit {
         next:()=>{
           this.toast.success({detail: "BERHASIL!", summary:"Penyimpanan disimpan", duration: 5000});
           this.addAlurBarangForm.reset();
-          this.router.navigate(['datapeminjaman'])
+          this.router.navigate(['data-laporan'])
         },
         error:()=>{
           this.toast.error({detail: "ERROR", summary:"Oops, ada Api yang salah!", duration: 5000});
