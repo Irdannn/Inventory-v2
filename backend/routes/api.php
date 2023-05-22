@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlurbarangController;
+use App\Http\Controllers\SopController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;

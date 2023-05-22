@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
 import { NgxPrintModule } from 'ngx-print';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule} from '@angular/material/paginator';
 import { QrCodeModule } from 'ng-qrcode';
 // import { ZXingScannerModule } from '@zxing/ngx-scanner';
 // import { WebcamModule } from 'ngx-webcam';
@@ -44,6 +44,9 @@ import { TutorialComponent } from './components/tutorial/tutorial.component';
 import { DataLaporanComponent } from './components/data-laporan/data-laporan.component';
 import { ScannerComponent } from './components/scanner/scanner.component';
 import { PengembalianComponent } from './components/pengembalian/pengembalian.component';
+import { SopTableComponent } from './components/soptabel/soptabel.component';
+import { SopComponent } from './components/sop/sop.component';
+import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -69,7 +72,9 @@ import { PengembalianComponent } from './components/pengembalian/pengembalian.co
     DataLaporanComponent,
     ScannerComponent,
     SafePipe,
-    PengembalianComponent
+    PengembalianComponent,
+    SopTableComponent,
+    SopComponent
   ],
   imports: [
     BrowserModule,
@@ -88,6 +93,7 @@ import { PengembalianComponent } from './components/pengembalian/pengembalian.co
     Ng2SearchPipeModule,
     MatTableModule,
     MatPaginatorModule,
+    MatDialogModule,
     //WebcamModule,
     QrCodeModule,
     // NgxScannerQrcodeModule

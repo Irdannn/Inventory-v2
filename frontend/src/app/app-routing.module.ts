@@ -20,6 +20,8 @@ import { DataLaporanComponent } from './components/data-laporan/data-laporan.com
 import { PrintAllCardComponent } from './components/print-all-card/print-all-card.component';
 import { ScannerComponent } from './components/scanner/scanner.component';
 import { PengembalianComponent } from './components/pengembalian/pengembalian.component';
+import { SopTableComponent } from './components/soptabel/soptabel.component';
+import { SopComponent } from './components/sop/sop.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch: 'full'},
@@ -47,7 +49,9 @@ const routes: Routes = [
   {path: 'tutorial', component: TutorialComponent, canActivate: [AuthGuard]},
   {path: 'data-laporan', component: DataLaporanComponent, canActivate: [AuthGuard]},
   {path: 'scanner', component: ScannerComponent, canActivate: [AuthGuard]},
-  {path: 'dashboard/kembali/:idBarang', component: PengembalianComponent, canActivate:[AuthGuard]}
+  {path: 'dashboard/kembali/:idBarang', component: PengembalianComponent, canActivate:[AuthGuard]},
+  {path: 'soptable', component: SopTableComponent, canActivate:[AuthGuard]},
+  {path: 'soptable/sop/:idBarang', component: SopComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({

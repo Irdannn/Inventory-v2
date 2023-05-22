@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\inventory;
+use App\Models\sop;
 use Illuminate\Http\Request;
 
 class InventoryController extends Controller
@@ -34,7 +35,7 @@ class InventoryController extends Controller
             'harga' => $request->harga,
             'aksesoris' => $request-> aksesoris,
             'unit' => $request->unit,
-            'status' => $request->staus 
+            'status' => $request->status 
         ]);
         return $inventory;
     }
