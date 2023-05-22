@@ -46,7 +46,7 @@
   
     <div class="container p-5">
       <form #form="ngForm" [formGroup]="addAlurBarangForm">
-        <div class="row">
+        <div hidden class="row">
           <div class="col-25">
             <label for="id_user">ID User</label>
           </div>
@@ -54,7 +54,7 @@
             <input type="text" name="id_user" id="id_user" required readonly formControlName="id_user" [(ngModel)]="id">
           </div>
         </div>
-        <div class="row">
+        <div hidden class="row">
           <div class="col-25">
             <label for="id_barang">ID Barang</label>
           </div>

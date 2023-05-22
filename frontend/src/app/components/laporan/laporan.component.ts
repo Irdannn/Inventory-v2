@@ -3,12 +3,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { BarangApiService } from 'src/app/services/barang-api.service';
 import { Barang } from 'src/app/models/barang';
-import { AlurbarangService } from 'src/app/services/alurbarang.service';
 import { AlurBarang } from 'src/app/models/alurbarang';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import ValidateForm from 'src/app/helpers/validateform';
 import { UserStoreService } from 'src/app/services/user-store.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { LaporanService } from 'src/app/services/laporan.service';
 
 @Component({
   selector: 'app-laporan',
@@ -28,7 +28,7 @@ export class LaporanComponent implements OnInit {
     private router : Router,
     private toast : NgToastService,
     private route: ActivatedRoute,
-    private alurapi: AlurbarangService,
+    private laporanApi: LaporanService,
     private fb : FormBuilder,
     private userStore: UserStoreService,
     private auth: AuthService
@@ -70,7 +70,7 @@ export class LaporanComponent implements OnInit {
   onAddAlurbarang(){
     if(this.addAlurBarangForm.valid) {
       // send the obj to database
-      this.alurapi.addAlurbarang(this.addAlurBarangForm.value)
+      this.laporanApi.addLaporan(this.addAlurBarangForm.value)
       .subscribe({
         next:()=>{
           this.toast.success({detail: "BERHASIL!", summary:"Penyimpanan disimpan", duration: 5000});

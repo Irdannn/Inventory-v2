@@ -14,19 +14,20 @@
                 <th scope="col">User</th>
                 <th scope="col">Keperluan Pinjam</th>
                 <th scope="col">Status</th>
+                <th scope="col">Kondisi</th>
                 <th scope="col">Waktu Peminjaman</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor = "let alur of listAlur | filter:searchText">
                 <td>
-                    {{alur.id}}
+                    {{alur.id_barang}}
                 </td>
                 <td>
                     {{alur.nama_barang}}
                 </td>
                 <td>
-                    {{alur.user}}
+                    {{alur.nama_user}}
                 </td>
                 <td>
                     {{alur.keterangan_pinjam}}
@@ -35,8 +36,11 @@
                     {{alur.status}}
                 </td>
                 <td>
+                    {{alur.kondisi}}
+                </td>
+                <td>
                 <div *ngIf="alur.waktupinjam !== '0000-00-00 00:00:00' && alur.waktukembali  !== '0000-00-00 00:00:00'">
-                    {{alur.waktupinjam}} s/d 
+                    {{alur.waktupinjam}} -
                     {{alur.waktukembali}}
                 </div>
                 </td>

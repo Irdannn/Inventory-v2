@@ -30,7 +30,8 @@ class AlurbarangController extends Controller
             'keterangan_pinjam' => $request->keterangan_pinjam,
             'waktupinjam' => $request->waktupinjam,
             'waktukembali' => $request->waktukembali,
-            'status' => $request->status
+            'status' => $request->status,
+            'kondisi' => $request->kondisi
         ]);
         if ($request->has('id_barang')) {
             $inventory = inventory::find($request->input('id_barang'));
@@ -59,7 +60,8 @@ class AlurbarangController extends Controller
             'keterangan_pinjam' => 'required',
             'waktupinjam' => 'required',
             'waktukembali' => 'required',
-            'status' => 'required'
+            'status' => 'required',
+            'kondisi' => 'required'
         ]);
 
         $alurbarang = alurbarang::find($id);
@@ -75,6 +77,7 @@ class AlurbarangController extends Controller
         $alurbarang->waktupinjam = $request->input('waktupinjam');
         $alurbarang->waktukembali = $request->input('waktukembali');
         $alurbarang->status = $request->input('status');
+        $alurbarang->kondisi = $request->input('kondisi');
         $alurbarang->save();
 
         if ($request->has('id_barang')) {

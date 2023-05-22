@@ -56,7 +56,8 @@ export class PengembalianComponent {
       // keterangan_pinjam: ['', Validators.required],
       //waktupinjam: ['', Validators.required],
       waktukembali: ['', Validators.required],
-      status: ['Ready', Validators.required]
+      status: ['Ready', Validators.required],
+      kondisi: [Validators.required]
     });
     this.userStore.getFullNameFromStore()
     .subscribe(val=>{

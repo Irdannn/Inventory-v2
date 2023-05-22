@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('nama_barang')->nullable();
             $table->string('keterangan_pinjam')->nullable();
             $table->string('status')->nullable();
+            $table->string('kondisi')->nullable();
             $table->dateTime('waktupinjam')->nullable();
             $table->dateTime('waktukembali')->nullable();
 
