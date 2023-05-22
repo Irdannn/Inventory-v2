@@ -46,7 +46,7 @@
   </div>
 
   <div class="container p-5">
-    <form #form="ngForm" [formGroup]="addAlurBarangForm">
+    <form #form="ngForm" (ngSubmit)="onAddAlurbarang()" [formGroup]="addAlurBarangForm">
       <div class="row" hidden>
         <div class="col-25">
           <label for="id_user">ID User</label>
@@ -99,7 +99,7 @@
       </div>
       <br>
       <div class="row">
-        <button type="submit"(click)="onAddAlurbarang()">Simpan</button>
+        <button type="submit">Simpan</button>
         <br>
         <br>             
       </div>

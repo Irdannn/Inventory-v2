@@ -33,7 +33,7 @@ import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-
 import { AddInventoryComponent } from './components/add-inventory/add-inventory.component';
 import { AddInventoryKaryawanComponent } from './components/add-inventory-karyawan/add-inventory-karyawan.component';
 import { AllInventoryComponent } from './components/all-inventory/all-inventory.component';
-import { DatapeminjamanComponent } from './components/datapeminjaman/datapeminjaman.component';
+import { AlurBarangComponent } from './components/alurbarang/alurbarang.component';
 import { LaporanComponent } from './components/laporan/laporan.component';
 import { PeminjamanComponent } from './components/peminjaman/peminjaman.component';
 import { PrintAllCardComponent } from './components/print-all-card/print-all-card.component';
@@ -58,7 +58,7 @@ import { PengembalianComponent } from './components/pengembalian/pengembalian.co
     AddInventoryComponent,
     AddInventoryKaryawanComponent,
     AllInventoryComponent,
-    DatapeminjamanComponent,
+    AlurBarangComponent,
     LaporanComponent,
     PeminjamanComponent,
     PrintAllCardComponent,

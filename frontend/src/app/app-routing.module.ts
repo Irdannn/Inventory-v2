@@ -9,7 +9,7 @@ import { DashboardAdminComponent } from './components/dashboard-admin/dashboard-
 import { AddInventoryComponent } from './components/add-inventory/add-inventory.component';
 import { AddInventoryKaryawanComponent } from './components/add-inventory-karyawan/add-inventory-karyawan.component';
 import { AllInventoryComponent } from './components/all-inventory/all-inventory.component';
-import { DatapeminjamanComponent } from './components/datapeminjaman/datapeminjaman.component';
+import { AlurBarangComponent } from './components/alurbarang/alurbarang.component';
 import { EditComponent } from './components/edit/edit.component';
 import { LaporanComponent } from './components/laporan/laporan.component';
 import { PeminjamanComponent } from './components/peminjaman/peminjaman.component';
@@ -31,7 +31,7 @@ const routes: Routes = [
   {path: 'add', component: AddInventoryComponent, canActivate:[AuthGuard]},
   {path: 'addkaryawan', component: AddInventoryKaryawanComponent, canActivate:[AuthGuard]},
   {path: 'allinventory', component: AllInventoryComponent, canActivate:[AuthGuard]},
-  {path: 'datapeminjaman', component: DatapeminjamanComponent, canActivate:[AuthGuard]},
+  {path: 'alurbarang', component: AlurBarangComponent, canActivate:[AuthGuard]},
   {path: 'allinventory/edit/:idBarang', component: EditComponent, canActivate: [AuthGuard]},
   {path: 'allinventory/printcard/:idBarang', component: PrintcardComponent, canActivate: [AuthGuard]},
   {path: 'dashboard/peminjaman/:idBarang', component: PeminjamanComponent, canActivate: [AuthGuard]},
@@ -47,7 +47,7 @@ const routes: Routes = [
   {path: 'tutorial', component: TutorialComponent, canActivate: [AuthGuard]},
   {path: 'data-laporan', component: DataLaporanComponent, canActivate: [AuthGuard]},
   {path: 'scanner', component: ScannerComponent, canActivate: [AuthGuard]},
-  {path: 'kembali/:idBarang', component: PengembalianComponent, canActivate:[AuthGuard]}
+  {path: 'dashboard/kembali/:idBarang', component: PengembalianComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({

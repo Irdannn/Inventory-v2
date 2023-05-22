@@ -25,6 +25,7 @@ return new class extends Migration
             $table->integer('harga')->nullable();
             $table->string('aksesoris')->nullable();
             $table->string('unit')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

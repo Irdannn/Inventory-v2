@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\alurbarang;
+use App\Models\inventory;
 use Illuminate\Http\Request;
 
 class AlurbarangController extends Controller
@@ -31,6 +32,10 @@ class AlurbarangController extends Controller
             'waktukembali' => $request->waktukembali,
             'status' => $request->status
         ]);
+        if ($request->has('id_barang')) {
+            $inventory = inventory::find($request->input('id_barang'));
+            $inventory->update(['status' => $request->input('status')]);
+        }
         return $alurbarang;
     }
 
@@ -71,6 +76,11 @@ class AlurbarangController extends Controller
         $alurbarang->waktukembali = $request->input('waktukembali');
         $alurbarang->status = $request->input('status');
         $alurbarang->save();
+
+        if ($request->has('id_barang')) {
+            $inventory = inventory::find($request->input('id_barang'));
+            $inventory->update(['status' => $request->input('status')]);
+        }
 
         return $alurbarang;
     }

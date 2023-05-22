@@ -12,6 +12,7 @@ export class Barang{
     harga: number;
     aksesoris: string;
     unit:string;
+    status:string;
 
     constructor(){
         this.id= 0;
@@ -27,5 +28,6 @@ export class Barang{
         this.harga=0;
         this.aksesoris="";
         this.unit="";
+        this.status="";
     }
 }

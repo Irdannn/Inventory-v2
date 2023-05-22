@@ -49,7 +49,6 @@ export class EditComponent implements OnInit{
 
 
   updateInventory(){
-    console.log(this.barang);
     this.api.updateBarang(this.barang.id, this.barang)
     .subscribe({
       next: () => {

@@ -1,98 +1,100 @@
 <app-sidebar>
-    <hr>
-  <div class="card">
-    <div class="card-details">
-      <p class="text-title">Detail Barang</p>
-      <p class="text-body">
-        <ul>
-          <li>
-            Id Barang : {{barang.id}}
-          </li>
-          <li>
-            Nama : {{barang.nama_barang}}
-          </li>
-          <li>
-            Aksesoris : {{barang.aksesoris}}
-          </li>
-          <li>
-            Fasilitas :  {{barang.fasilitas}}
-          </li>
-          <li>
-            Unit : {{barang.unit}}
-          </li>
-          <li>
-            Sumber Dana : {{barang.dana}}
-          </li>
-          <li>
-            Ruangan/User: {{barang.tempat}}
-          </li>
-          <li>
-            Kategori :  {{barang.jenis}}
-          </li>
-          <li>
-            Jumlah Barang :  {{barang.jumlah}}
-          </li>
-          <li>
-            Tahun pembelian: {{barang.tahun}}
-          </li>
-          <li>
-            Sifat :  {{barang.sifat}}
-          </li>
-          <li>
-            Kondisi :  {{barang.kondisi}}
-          </li>
-        </ul>
-    </div>
+  <hr>
+<div class="card">
+  <div class="card-details">
+    <p class="text-title">Detail Barang</p>
+    <p class="text-body">
+      <ul>
+        <li>
+          Id Barang : {{barang.id}}
+        </li>
+        <li>
+          Nama : {{barang.nama_barang}}
+        </li>
+        <li>
+          Aksesoris : {{barang.aksesoris}}
+        </li>
+        <li>
+          Fasilitas :  {{barang.fasilitas}}
+        </li>
+        <li>
+          Unit : {{barang.unit}}
+        </li>
+        <li>
+          Sumber Dana : {{barang.dana}}
+        </li>
+        <li>
+          Ruangan/User: {{barang.tempat}}
+        </li>
+        <li>
+          Kategori :  {{barang.jenis}}
+        </li>
+        <li>
+          Jumlah Barang :  {{barang.jumlah}}
+        </li>
+        <li>
+          Tahun pembelian: {{barang.tahun}}
+        </li>
+        <li>
+          Sifat :  {{barang.sifat}}
+        </li>
+        <li>
+          Kondisi :  {{barang.kondisi}}
+        </li>
+      </ul>
   </div>
+</div>
 
-  <div class="container p-5">
-    <form #form="ngForm" [formGroup]="addAlurBarangForm">
-      <div class="row" hidden>
-        <div class="col-25">
-          <label for="id_user">ID User</label>
-        </div>
-        <div class="col-75">
-          <input type="text" name="id_user" id="id_user" required readonly formControlName="id_user" [(ngModel)]="id">
-        </div>
+<div class="container p-5">
+  <form #form="ngForm" (ngSubmit)="onUpdateAlurbarang()" [formGroup]="updateAlurBarangForm">
+    <div class="row" hidden>
+      <div class="col-25">
+        <label for="id_user">ID User</label>
       </div>
-      <div class="row" hidden>
-        <div class="col-25">
-          <label for="id_barang">ID Barang</label>
-        </div>
-        <div class="col-75">
-          <input type="text" name="id_barang" id="id_barang" required readonly formControlName="id_barang" [(ngModel)]="barang.id">
-        </div>
+      <div class="col-75">
+        <input type="text" name="id_user" id="id_user" required readonly formControlName="id_user" [(ngModel)]="id">
       </div>
-      <div class="row">
-        <div class="col-25">
-          <label for="nama_barang">Nama Barang</label>
-        </div>
-        <div class="col-75">
-          <input type="text" name="nama_barang" id="nama_barang" required readonly formControlName="nama_barang" [(ngModel)]="barang.nama_barang">
-        </div>
+    </div>
+    <div class="row" hidden>
+      <div class="col-25">
+        <label for="id_barang">ID Barang</label>
       </div>
-      <div class="row">
-        <div class="col-25">
-          <label for="nama_user">Pengembali Barang</label>
-        </div>
-        <div class="col-75">
-          <input type="text" name="nama_user" id="nama_user" required readonly formControlName="nama_user" [(ngModel)]="fullName">
-        </div>
+      <div class="col-75">
+        <input type="text" name="id_barang" id="id_barang" required readonly formControlName="id_barang" [(ngModel)]="barang.id">
       </div>
-      <div class="row">
-        <div class="col-25">
-          <label for="waktupinjam"> Waktu Mengembalikan</label>
-        </div>
-        <div class="col-75">
-          <input type="datetime-local" name="waktukembali" id="waktukembali" formControlName="waktukembali">
-        </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="nama_barang">Nama Barang</label>
       </div>
+      <div class="col-75">
+        <input type="text" name="nama_barang" id="nama_barang" required readonly formControlName="nama_barang" [(ngModel)]="barang.nama_barang">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="nama_user">Pengembali Barang</label>
+      </div>
+      <div class="col-75">
+        <input type="text" name="nama_user" id="nama_user" required readonly formControlName="nama_user" [(ngModel)]="fullName">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="waktupinjam"> Waktu Pengembalian</label>
+      </div>
+      <div class="col-75">
+        <!-- <input type="datetime-local" name="waktupinjam" id="waktupinjam" formControlName="waktupinjam" required>
+        <span>   Sampai dengan    </span> -->
+        <input type="datetime-local" name="waktukembali" id="waktukembali" formControlName="waktukembali">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <button type="submit">Simpan</button>
       <br>
-      <div class="row">
-        <button type="submit"(click)="onAddAlurbarang()">Simpan</button>
-        <br>
-        <br>             
-      </div>
-    </form>
-  </div>
+      <br>             
+    </div>
+  </form>
+</div>
 </app-sidebar>

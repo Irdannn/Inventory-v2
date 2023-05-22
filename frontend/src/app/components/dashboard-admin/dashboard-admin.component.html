@@ -7,7 +7,7 @@
         <table class="table table-striped" id="product">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Id Barang</th>
+                    <th scope="col">Id</th>
                     <th scope="col">Action</th>
                     <th scope="col">Nama Barang</th>
                     <th scope="col">Kondisi</th>
@@ -20,7 +20,8 @@
                         {{barang.id}}
                     </td>
                     <td id="button-table" scope="row">
-                        <button [routerLink]="['peminjaman', barang.id]">Peminjaman</button>               
+                        <button [routerLink]="['peminjaman', barang.id]">Peminjaman</button>
+                        <button [routerLink]="['kembali', barang.id]">Pengembalian</button>              
                         <button [routerLink]="['laporan', barang.id]">Laporan</button>               
                     </td>
                     <td>
@@ -30,7 +31,7 @@
                         {{barang.kondisi}}
                     </td>
                     <td>
-                        Dipinjam/Ready
+                        {{barang.status}}
                     </td>
                 </tr>
             </tbody>

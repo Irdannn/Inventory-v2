@@ -18,7 +18,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class PengembalianComponent {
   barang:Barang  = new Barang();
   alurbarang: AlurBarang = new AlurBarang();
-  addAlurBarangForm!: FormGroup;
+  updateAlurBarangForm!: FormGroup;
 
   public fullName:string = "";
   public id:string = "";
@@ -48,12 +48,13 @@ export class PengembalianComponent {
         }
       }
     });
-    this.addAlurBarangForm = this.fb.group({
+    this.updateAlurBarangForm = this.fb.group({
       id_user:[Validators.required],
       id_barang: [Validators.required],
       nama_user: ['', Validators.required],
       nama_barang: ['', Validators.required],
-      keterangan_pinjam: ['', Validators.required],
+      // keterangan_pinjam: ['', Validators.required],
+      //waktupinjam: ['', Validators.required],
       waktukembali: ['', Validators.required],
       status: ['Ready', Validators.required]
     });
@@ -69,15 +70,14 @@ export class PengembalianComponent {
     })
   }
 
-  onAddAlurbarang(){
-    if(this.addAlurBarangForm.valid) {
-      // send the obj to database
-      this.alurapi.addAlurbarang(this.addAlurBarangForm.value)
+  onUpdateAlurbarang(){
+    if(this.updateAlurBarangForm.valid) {
+      this.alurapi.addAlurbarang(this.updateAlurBarangForm.value)
       .subscribe({
         next:()=>{
           this.toast.success({detail: "BERHASIL!", summary:"Penyimpanan disimpan", duration: 5000});
-          this.addAlurBarangForm.reset();
-          this.router.navigate(['datapeminjaman'])
+          this.updateAlurBarangForm.reset();
+          this.router.navigate(['dashboard'])
         },
         error:()=>{
           this.toast.error({detail: "ERROR", summary:"Oops, ada Api yang salah!", duration: 5000});
@@ -86,7 +86,7 @@ export class PengembalianComponent {
     } else {
       console.log("form is not valid")
       // check if the form is invalid
-      ValidateForm.validateAllformsFields(this.addAlurBarangForm);
+      ValidateForm.validateAllformsFields(this.updateAlurBarangForm);
       this.toast.error({detail: "ERROR", summary:"Input Invalid, pastikan semua sudah diisi", duration: 5000});
     }
   }

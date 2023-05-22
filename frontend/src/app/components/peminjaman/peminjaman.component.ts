@@ -72,7 +72,6 @@ export class PeminjamanComponent implements OnInit {
 
   onAddAlurbarang(){
     if(this.addAlurBarangForm.valid) {
-      // send the obj to database
       this.alurapi.addAlurbarang(this.addAlurBarangForm.value)
       .subscribe({
         next:()=>{

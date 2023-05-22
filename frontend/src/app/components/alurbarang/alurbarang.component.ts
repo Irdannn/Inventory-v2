@@ -4,11 +4,11 @@ import { AlurbarangService } from 'src/app/services/alurbarang.service';
 import *as XLSX from 'xlsx';
 
 @Component({
-  selector: 'app-datapeminjaman',
-  templateUrl: './datapeminjaman.component.html',
-  styleUrls: ['./datapeminjaman.component.css']
+  selector: 'app-alurbarang',
+  templateUrl: './alurbarang.component.html',
+  styleUrls: ['./alurbarang.component.css']
 })
-export class DatapeminjamanComponent implements OnInit {
+export class AlurBarangComponent implements OnInit {
   public listAlur = [];
   alur!: AlurBarang;
   

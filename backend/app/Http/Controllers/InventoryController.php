@@ -33,7 +33,8 @@ class InventoryController extends Controller
             'jumlah' => $request->jumlah,
             'harga' => $request->harga,
             'aksesoris' => $request-> aksesoris,
-            'unit' => $request->unit 
+            'unit' => $request->unit,
+            'status' => $request->staus 
         ]);
         return $inventory;
     }
@@ -63,7 +64,8 @@ class InventoryController extends Controller
             'jumlah',
             'harga',
             'aksesoris',
-            'unit'
+            'unit',
+            'status'
         ]);
 
         $inventory = inventory::find($id);
@@ -83,6 +85,7 @@ class InventoryController extends Controller
         $inventory->harga = $request->input('harga');
         $inventory->aksesoris = $request->input('aksesoris');
         $inventory->unit = $request->input('unit');
+        $inventory->status = $request->input('status');
         $inventory->save();
 
         return $inventory;

@@ -20,7 +20,8 @@ class inventory extends Model
         'jumlah',
         'harga',
         'aksesoris',
-        'unit'
+        'unit',
+        'status'
     ];
     public function lihatinventory()
     {

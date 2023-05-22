@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DatapeminjamanComponent } from './datapeminjaman.component';
+import { AlurBarangComponent } from './alurbarang.component';
 
 describe('DatapeminjamanComponent', () => {
-  let component: DatapeminjamanComponent;
-  let fixture: ComponentFixture<DatapeminjamanComponent>;
+  let component: AlurBarangComponent;
+  let fixture: ComponentFixture<AlurBarangComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DatapeminjamanComponent ]
+      declarations: [ AlurBarangComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DatapeminjamanComponent);
+    fixture = TestBed.createComponent(AlurBarangComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
