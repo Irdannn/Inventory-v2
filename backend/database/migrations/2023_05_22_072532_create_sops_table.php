@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('nama_barang')->nullable();
             $table->string('kondisi')->nullable();
             $table->date('waktusop')->nullable();
+            $table->integer('jumlah')->nullable();
             $table->timestamps();
         });
     }

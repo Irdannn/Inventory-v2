@@ -1,4 +1,4 @@
-export class Laporan{
+export class Sop{
     id : number;
     id_user : number;
     id_barang : number;
@@ -6,6 +6,7 @@ export class Laporan{
     nama_barang : string;
     kondisi : string;
     waktusop : string;
+    jumlah : number;
 
     constructor(){
         this.id= 0;
@@ -15,5 +16,6 @@ export class Laporan{
         this.nama_user="";
         this.kondisi="";
         this.waktusop="";
+        this.jumlah=0;
     }
 }

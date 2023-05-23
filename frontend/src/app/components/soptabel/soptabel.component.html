@@ -1,8 +1,50 @@
 <app-sidebar>
     <div class="box content">
         <div class="inputGroup">
-            <input id="searcInput" type="text" autocomplete="off" placeholder="Cari disini" [(ngModel)]="searchText">
-            <button routerLink="/scanner" class="button-excell">Scan</button> 
+            <!-- <input id="searcInput" type="text" autocomplete="off" placeholder="Cari disini" [(ngModel)]="searchText"> -->
+            <select id="searcInput" placeholder="Pilih Ruangan" [(ngModel)]="searchText" >
+                <option value="Ahmad Dahlan"></option>
+                <option value="Ahmad Dahlan">Ahmad Dahlan</option>
+                <option value="AH Nasution">AH Nasutution</option>
+                <option value="BCIM">BCIM</option>
+                <option value="Buya Hamka">Buya Hamka</option>
+                <option value="Dapur">Dapur</option>
+                <option value="Pangeran Diponegoro">Pangeran Diponegoro</option>
+                <option value="Gazebo">Gajebo</option>
+                <option value="Gudang 1">Gudang 1</option>
+                <option value="Gudang 2">Gudang 2</option>
+                <option value="Gudang 3">Gudang 3</option>
+                <option value="Gudang 2 Timur">Gudang 2 Timur</option>
+                <option value="Gudang Masjid">Gudang Masjid</option>
+                <option value="Hasanudin">Hasanudin</option>
+                <option value="Hasyim asyari">Hasyim Asy'ari</option>
+                <option value="IR Soekarno">IR Soekarno</option>
+                <option value="Jend Sudirman">Jendral Sudirman</option>
+                <option value="Kamar Kkecil 1">Kamar Kecil 1</option>
+                <option value="Kamar Kecil 2">Kamar Kecil 2</option>
+                <option value="Kamar Kecil 3">Kamar Kecil 3</option>
+                <option value="Kantor">Kantor</option>
+                <option value="Kamar Kecil Masjid 1">KC Masjid 1</option>
+                <option value="Kamar Kecil Masjid 2">KC Masjid 2</option>
+                <option value="KH Idham Chalid">KH Idham Chalid</option>
+                <option value="Ki Hajar Dewantara">Ki Hajar Dewantara</option>
+                <option value="Koridor1">Koridor 1</option>
+                <option value="Koridor2">Koridor 2</option>
+                <option value="Koridor3">Koridor 3</option>
+                <option value="Masjid">Masjid</option>
+                <option value="MBC">MBC</option>
+                <option value="Parkir1">Parkir 1</option>
+                <option value="Perpus">Perpus</option>
+                <option value="Ruang Satpam">Ruang Satpam</option>
+                <option value="Studio">Studio</option>
+                <option value="Ruang Tunggu">Ruang Tunggu</option>
+                <option value="Ruang Keuangan">Ruang Keuangan</option>
+                <option value="Ruang Kepala">Ruang Kepala</option>
+                <option value="Ruang Quran">Ruang Al-Quran</option>
+                <option value="Ruang Wudhu1">Ruang Wudhu 1</option>
+                <option value="Wahab Hasbullah">KH Wahab Hasbullah</option>
+                <option value="Wahid Hasyim">Wahid Hasyim</option>
+              </select>
         </div>
         <table class="table table-striped" id="product">
             <thead class="thead-dark">
@@ -22,13 +64,20 @@
                         {{barang.nama_barang}}
                     </td>
                     <td>
-                        {{barang.status}}
+                        {{barang.kondisi}}
                     </td>
                     <td id="button-table" scope="row">
-                        <!-- <button (click)="openForm(barang)">Edit</button>
-                        <button [routerLink]="['peminjaman', barang.id]">SOP</button>            -->
+                        <!-- <button (click)="openForm(barang)">Edit</button>-->
+                        <button [routerLink]="['sop', barang.id]">SOP</button>            
                         <!-- <button mat-button (click)="openForm(barang.id)">Edit</button> -->
-                        <button mat-button (click)="openForm(barang.id)">SOP</button>
+                        <!-- <button mat-button (click)="openForm(barang.id)">SOP</button> -->
+                        <!-- <button mat-icon-button (click)="openEditForm(barang)">
+                            <mat-icon>edit</mat-icon>
+                        </button> -->
+                        <!-- <button mat-raised-button color="primary"
+                        [routerLink]="['sop', barang.id]">
+                            VIEW COURSE
+                        </button> -->
                     </td>
                 </tr>
             </tbody>

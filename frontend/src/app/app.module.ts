@@ -47,6 +47,8 @@ import { PengembalianComponent } from './components/pengembalian/pengembalian.co
 import { SopTableComponent } from './components/soptabel/soptabel.component';
 import { SopComponent } from './components/sop/sop.component';
 import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -94,8 +96,10 @@ import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material/d
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
+    MatFormFieldModule,
     //WebcamModule,
     QrCodeModule,
+    MatIconModule
     // NgxScannerQrcodeModule
     // ZXingScannerModule
   ],

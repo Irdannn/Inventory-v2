@@ -14,7 +14,8 @@ class sop extends Model
         'nama_user',
         'nama_barang',
         'kondisi',
-        'waktusop'
+        'waktusop',
+        'jumlah'
     ];
     public function user()
     {

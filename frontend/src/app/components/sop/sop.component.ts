@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, Inject, OnInit} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { BarangApiService } from 'src/app/services/barang-api.service';
@@ -9,7 +9,9 @@ import ValidateForm from 'src/app/helpers/validateform';
 import { UserStoreService } from 'src/app/services/user-store.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { LaporanService } from 'src/app/services/laporan.service';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { SopService } from 'src/app/services/sop.service';
+import { getLocaleDateFormat } from '@angular/common';
+// import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-sop',
@@ -29,10 +31,10 @@ export class SopComponent implements OnInit {
     private router : Router,
     private toast : NgToastService,
     private route: ActivatedRoute,
-    private laporanApi: LaporanService,
+    private sop: SopService,
     private fb : FormBuilder,
     private userStore: UserStoreService,
-    private auth: AuthService
+    private auth: AuthService,
   ){}
 
   ngOnInit(): void {
@@ -51,11 +53,12 @@ export class SopComponent implements OnInit {
     });
     this.addSopForm = this.fb.group({
       id_user: ['', Validators.required],
-      id_barang: [Validators.required],
+      id_barang: ['' ,Validators.required],
       nama_user: ['',Validators.required],
       nama_barang: ['', Validators.required],
       kondisi: ['', Validators.required],
-      waktusop: ['', Validators.required]
+      waktusop: [new Date(), Validators.required],
+      jumlah: [0, Validators.required]
     });
     this.userStore.getFullNameFromStore()
     .subscribe(val=>{
@@ -72,12 +75,12 @@ export class SopComponent implements OnInit {
   onSopbarang(){
     if(this.addSopForm.valid) {
       // send the obj to database
-      this.laporanApi.addLaporan(this.addSopForm.value)
+      this.sop.addSop(this.addSopForm.value)
       .subscribe({
         next:()=>{
           this.toast.success({detail: "BERHASIL!", summary:"Penyimpanan disimpan", duration: 5000});
           this.addSopForm.reset();
-          this.router.navigate(['data-laporan'])
+          this.router.navigate(['soptable'])
         },
         error:()=>{
           this.toast.error({detail: "ERROR", summary:"Oops, ada Api yang salah!", duration: 5000});

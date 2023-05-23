@@ -28,7 +28,8 @@ class SopController extends Controller
             'nama_user' => $request->nama_user,
             'nama_barang' => $request->nama_barang,
             'kondisi' => $request->kondisi,
-            'waktusop' => $request->waktusop
+            'waktusop' => $request->waktusop,
+            'jumlah' => $request->jumlah
         ]);
         if ($request->has('id_barang')){
             $inventory = inventory::find($request->input('id_barang'));
@@ -56,7 +57,8 @@ class SopController extends Controller
             'nama_user' => 'required',
             'nama_barang' => 'required',
             'kondisi' => 'required',
-            'waktusop' => 'required'
+            'waktusop' => 'required',
+            'jumlah' => 'required'
         ]);
 
         $sop = sop::find($id);
@@ -70,6 +72,7 @@ class SopController extends Controller
         $sop->nama_barang = $request->input('nama_barang');
         $sop->kondisi = $request->input('kondisi');
         $sop->waktusop = $request->input('waktusop');
+        $sop->jumlah = $request->input('jumlah');
         $sop->save();
 
         if ($request->has('id_barang')) {

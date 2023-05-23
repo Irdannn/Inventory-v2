@@ -37,6 +37,7 @@ class InventoryController extends Controller
             'unit' => $request->unit,
             'status' => $request->status 
         ]);
+
         return $inventory;
     }
 
