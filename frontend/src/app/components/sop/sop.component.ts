@@ -10,7 +10,7 @@ import { UserStoreService } from 'src/app/services/user-store.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { LaporanService } from 'src/app/services/laporan.service';
 import { SopService } from 'src/app/services/sop.service';
-import { getLocaleDateFormat } from '@angular/common';
+import { getLocaleDateFormat, Location } from '@angular/common';
 // import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -35,6 +35,7 @@ export class SopComponent implements OnInit {
     private fb : FormBuilder,
     private userStore: UserStoreService,
     private auth: AuthService,
+    private location : Location
   ){}
 
   ngOnInit(): void {
@@ -57,8 +58,8 @@ export class SopComponent implements OnInit {
       nama_user: ['',Validators.required],
       nama_barang: ['', Validators.required],
       kondisi: ['', Validators.required],
-      waktusop: [new Date(), Validators.required],
-      jumlah: [0, Validators.required]
+      waktusop: ['', Validators.required],
+      jumlah: [Validators.required]
     });
     this.userStore.getFullNameFromStore()
     .subscribe(val=>{
@@ -92,5 +93,8 @@ export class SopComponent implements OnInit {
       ValidateForm.validateAllformsFields(this.addSopForm);
       this.toast.error({detail: "ERROR", summary:"Input Invalid, pastikan semua sudah diisi", duration: 5000});
     }
+  }
+  back(): void {
+    this.location.back()
   }
 }

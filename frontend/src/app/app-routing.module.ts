@@ -22,6 +22,7 @@ import { ScannerComponent } from './components/scanner/scanner.component';
 import { PengembalianComponent } from './components/pengembalian/pengembalian.component';
 import { SopTableComponent } from './components/soptabel/soptabel.component';
 import { SopComponent } from './components/sop/sop.component';
+import { SopRuanganComponent } from './components/sop-ruangan/sop-ruangan.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch: 'full'},
@@ -51,7 +52,9 @@ const routes: Routes = [
   {path: 'scanner', component: ScannerComponent, canActivate: [AuthGuard]},
   {path: 'dashboard/kembali/:idBarang', component: PengembalianComponent, canActivate:[AuthGuard]},
   {path: 'soptable', component: SopTableComponent, canActivate:[AuthGuard]},
-  {path: 'soptable/sop/:idBarang', component: SopComponent, canActivate:[AuthGuard]}
+  {path: 'soptable/ruangan/:tempat', component: SopRuanganComponent, canActivate:[AuthGuard]},
+  {path: 'soptable/ruangan/bcim/sop/:idBarang', component: SopComponent, canActivate:[AuthGuard]}
+  
 ];
 
 @NgModule({

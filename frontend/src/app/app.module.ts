@@ -49,6 +49,7 @@ import { SopComponent } from './components/sop/sop.component';
 import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
+import { SopRuanganComponent } from './components/sop-ruangan/sop-ruangan.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import {MatIconModule} from '@angular/material/icon';
     SafePipe,
     PengembalianComponent,
     SopTableComponent,
-    SopComponent
+    SopComponent,
+    SopRuanganComponent
   ],
   imports: [
     BrowserModule,

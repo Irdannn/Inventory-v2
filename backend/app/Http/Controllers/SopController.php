@@ -35,6 +35,10 @@ class SopController extends Controller
             $inventory = inventory::find($request->input('id_barang'));
             $inventory->update(['kondisi' => $request->input('kondisi')]);
         }
+        if ($request->has('id_barang')){
+            $inventory = inventory::find($request->input('id_barang'));
+            $inventory->update(['jumlah' => $request->input('jumlah')]);
+        }
         return $sop;
     }
 

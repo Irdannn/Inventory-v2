@@ -41,6 +41,14 @@ class InventoryController extends Controller
         return $inventory;
     }
 
+    public function tempat(Request $request, $tempat)
+    {
+        // Retrieve inventory by tempat
+        $inventory = inventory::where('tempat', $tempat)->get();
+
+        return $inventory;
+    }
+
     /**
      * Display the specified resource.
      */

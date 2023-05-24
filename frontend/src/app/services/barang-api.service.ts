@@ -25,8 +25,8 @@ export class BarangApiService {
     return this.http.get<Barang>(`${this.baseurl}show/`+ id_barang);
   }
 
-  getInventorybycategory(category: string): Observable<Barang> {
-    return this.http.get<Barang>(`${this.baseurl}`+ category);
+  getInventorybytempat(tempat: string): Observable<Barang> {
+    return this.http.get<Barang>(`${this.baseurl}tempat/`+ tempat);
   }
 
   // updateBarang(id_barang: number, updateInventoryRequest: Barang): Observable<Barang>{

@@ -70,8 +70,8 @@ button:focus {
   font-size: 100%;
   padding: 2em;
   outline: none;
-  border: 2px solid rgb(0, 0, 0);
-  background-color: transparent;
+  border: 2px solid white;
+  background-color: #d5e98c;
   width: 30%;
   height: 8vh;
 }
@@ -85,11 +85,11 @@ button:focus {
   margin: 0em;
   margin-left: 1.3em;
   padding: 0.4em;
-  background-color: #e8e8e8;
+  background-color: #343a40;
 }
 
 .inputGroup :is(input:focus, input:valid) {
-  border-color: rgb(52,58,64)
+  border-color: rgb(75, 78, 82)
 }
   
 @media (min-width: 768px) {

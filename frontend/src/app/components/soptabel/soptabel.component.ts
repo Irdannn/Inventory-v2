@@ -4,6 +4,9 @@ import { AuthService } from 'src/app/services/auth.service';
 import { BarangApiService } from 'src/app/services/barang-api.service';
 import { UserStoreService } from 'src/app/services/user-store.service';
 import { Barang } from 'src/app/models/barang';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { NgToastService } from 'ng-angular-popup';
 // import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 // import { SopComponent } from '../sop/sop.component';
 
@@ -19,17 +22,19 @@ export class SopTableComponent {
 
   public users:any = [];
   public role!:string;
-
-  // row: any = {};
-
-
   public fullName:string = "";
+
+  getRuangan!: FormGroup;
+
   constructor(
     private authapi : ApiService, 
     private auth: AuthService,
     private userStore: UserStoreService,
     private api : BarangApiService,
-    // private dialog: MatDialog
+    private router : Router,
+    private cari : BarangApiService,
+    private toast : NgToastService,
+    private fb : FormBuilder,
     ) { }
 
 
@@ -47,29 +52,19 @@ export class SopTableComponent {
     .subscribe(res => {
       this.listBarang = res;
     });
+    this.getRuangan = this.fb.group({
+      tempat: ['']
+    })
   }
-
-  // openForm(barang : any) {
-  //   const dialogConfig = new MatDialogConfig();
-  //   dialogConfig.data = { barang };
-
-  //   this.dialog.open(SopComponent, dialogConfig);
-  //   this.api.getInventory(barang)
-  //         .subscribe({
-  //           next: (response) => {
-  //             this.barang = response;
-  //       }
-  //         })
-  // }
-  // openEditForm(barang: any) {
-  //   this.barang = barang;
-  //   const dialogRef = this.dialog.open(SopComponent, {
-  //     //width: '800px',
-  //     data: this.barang // Pass the selected row's data to the form
-  //   });
-  
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     // Perform any necessary actions after the form is closed
-  //   });
-  // }
+  cariTempat() {
+    this.cari.getInventorybytempat(this.getRuangan.value)
+    .subscribe({
+      next:()=>{
+        //this.router.navigate(['soptable', barang.tempat])
+      },
+      error:()=>{
+        this.toast.error({detail: "ERROR", summary:"Oops, ada Api yang salah!", duration: 5000});
+      }
+    })
+  }
 }

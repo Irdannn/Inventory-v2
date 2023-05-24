@@ -31,11 +31,11 @@ export class AddInventoryKaryawanComponent implements OnInit {
       tempat: ['', Validators.required],
       tahun: [''],
       jenis: ['', Validators.required],
-      jumlah: [0, Validators.required],
+      jumlah: [Validators.required],
       dana: [''],
       sifat: ['', Validators.required],
       kondisi: ['', Validators.required],
-      harga: [0],
+      harga: [],
       unit: ['', Validators.required]
     });
     // this.userStore.getFullNameFromStore()

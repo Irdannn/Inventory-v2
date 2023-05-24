@@ -8,8 +8,8 @@
                 <tr>
                     <th scope="col">Id Barang</th>
                     <th scope="col">Nama Barang</th>
-                    <th scope="col">Kondisi</th>
                     <th scope="col">Ruangan</th>
+                    <th scope="col">Kondisi</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -22,12 +22,13 @@
                         {{barang.nama_barang}}
                     </td>
                     <td>
-                        {{barang.kondisi}}
+                        {{barang.tempat}}
                     </td>
                     <td>
-                        {{barang.tempat}}
-                    <td>
-                        <button [routerLink]="['ruangan', barang.tempat]">Lihat berdasar Ruangan</button>
+                        {{barang.kondisi}}
+                    </td>
+                    <td id="button-table" scope="row">
+                        <button [routerLink]="['sop', barang.id]">SOP</button> 
                     </td>
                 </tr>
             </tbody>
