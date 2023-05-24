@@ -41,17 +41,12 @@ export class LoginComponent implements OnInit{
   onLogin(){
     if(this.loginForm.valid) {
       // send the obj to database
-      console.log(this.loginForm.value)
       this.auth.login(this.loginForm.value)
       .subscribe({
-        next:(res)=>{  
-          console.log(res.message);        
+        next:(res)=>{         
           this.loginForm.reset();
           this.auth.storeToken(res.accessToken);
-          this.auth.storeRefreshToken(res.refreshToken);
-          let tokenPayload = this.auth.decodedToken();
-          //this.userStore.setFullNameForStore(tokenPayload.name);
-          //this.userStore.setRoleForStore(tokenPayload.role);
+          // this.auth.storeRefreshToken(res.refreshToken);
           this.toast.success({detail: "SUCCESS", summary:"Assalamualaikum", duration: 5000});
           this.router.navigate(['profile'])
         },

@@ -46,7 +46,6 @@ class AuthController extends Controller
             return response()->json(['error'=>'Unauthorized'], 401);
         }
         return $this->createNewToken($token);
-        //return $token;
     }
 
     public function createNewToken($token){
@@ -64,14 +63,6 @@ class AuthController extends Controller
             return response()->json(['error' => 'Failed to create new token'], 500);
         }
     }
-    
-    // public function refresh($token)
-    // {
-    //     return response()->json([
-    //         'refreshToken'=> $token,
-    //         'token_type'=> 'Bearer'
-    //     ]);
-    // }
 
     public function refresh()
 {

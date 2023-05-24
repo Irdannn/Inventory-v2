@@ -27,38 +27,53 @@ export class TokenInterceptor implements HttpInterceptor {
     }
     return next.handle(request).pipe(
       catchError((err:any)=>{
-        if(err instanceof HttpErrorResponse) {
+        //if(err instanceof HttpErrorResponse) {
           if(err.status === 401) {
-            //this.toast.warning({detail: "Warning", summary: "Token is expired, Login again"});
+            this.toast.warning({detail: "Warning", summary: "Mohon Login Ulang"});
             this.router.navigate(['login'])
             //handle
-            return this.handleUnAuthorizeError(request,next)
+            //return this.handleUnAuthorizeError(request,next)
           }
-        }
+        //}
         return throwError(() => new Error("Some other error occured"))
       })
     );
   }
-  handleUnAuthorizeError(req: HttpRequest<any>, next: HttpHandler){
-    let tokenApiModel = new TokenApiModel();
-    tokenApiModel.accessToken = this.auth.getToken()!;
-    tokenApiModel.refreshToken = this.auth.getRefreshToken()!;
-    return this.auth.renewToken(tokenApiModel)
-    .pipe(
-      switchMap((data:TokenApiModel)=>{
-        this.auth.storeRefreshToken(data.refreshToken);
-        this.auth.storeToken(data.accessToken);
-        req = req.clone({
-          setHeaders: {Authorization: `Bearer ${data.accessToken}`}
-        })
-        return next.handle(req)
-      }),
-      catchError((err)=>{
-        return throwError(()=>{
-          this.toast.warning({detail: "Warning", summary: "Token is expired, Login againn"});
-          //this.router.navigate(['login'])
-        })
-      })
-    )
-  }
+  // handleUnAuthorizeError(req: HttpRequest<any>, next: HttpHandler){
+  //   let tokenApiModel = new TokenApiModel();
+  //   tokenApiModel.accessToken = this.auth.getToken()!;
+  //   //tokenApiModel.refreshToken = this.auth.getRefreshToken()!;
+  //   return this.auth.renewToken(tokenApiModel)
+  //   .pipe(
+  //     switchMap((data:TokenApiModel)=>{
+  //       //this.auth.storeRefreshToken(data.refreshToken);
+  //       this.auth.storeToken(data.accessToken);
+  //       req = req.clone({
+  //         setHeaders: {Authorization: `Bearer ${data.accessToken}`}
+  //       })
+  //       return next.handle(req)
+  //     }),
+  //     catchError((err)=>{
+  //       return throwError(()=>{
+  //         this.toast.warning({detail: "Warning", summary: "Token is expired, Login againn"});
+  //         this.router.navigate(['login'])
+  //       })
+  //     })
+  //   )
+  // }
+  // constructor(private authService: AuthService) {}
+
+  // intercept(request: HttpRequest<any>, next: HttpHandler) {
+  //   const token = localStorage.getItem('token');
+
+  //   if (token) {
+  //     request = request.clone({
+  //       setHeaders: {
+  //         Authorization: `Bearer ${token}`
+  //       }
+  //     });
+  //   }
+
+  //   return next.handle(request);
+  // }
 }
