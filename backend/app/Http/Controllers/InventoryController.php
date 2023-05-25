@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\inventory;
 use App\Models\sop;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class InventoryController extends Controller
 {
@@ -22,6 +24,9 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
+        $inventory = $request->validate([
+            'picture' => 'required|mimes:jpeg,png|max:5000'
+        ]);
         $inventory = inventory::create([
             'nama_barang' => $request->nama_barang,
             'fasilitas' => $request->fasilitas,
@@ -35,11 +40,40 @@ class InventoryController extends Controller
             'harga' => $request->harga,
             'aksesoris' => $request-> aksesoris,
             'unit' => $request->unit,
-            'status' => $request->status 
+            'status' => $request->status,
+            'picture' => $request->picture 
         ]);
 
+        if ($request->hasFile('picture')) {
+            $picturePath = $request->file('picture')->store('public/pictures');
+            $inventory->picture = Storage::url($picturePath);
+        }
+    
+        try {
+            $inventory->save();
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json(['error' => 'Failed to save the inventory'], 500);
+        }
+        
+
         return $inventory;
+
     }
+
+    public function getPicture($id)
+{
+    $inventory = inventory::findOrFail($id);
+
+    if ($inventory->picture) {
+        $storagePath = str_replace('public/', 'pictures/', $inventory->picture);
+        return response()->file(storage_path($storagePath));
+    } else {
+        return response()->json(['error' => 'Picture not found'], 404);
+    }
+}
+
+
 
     public function tempat(Request $request, $tempat)
     {
@@ -80,7 +114,7 @@ class InventoryController extends Controller
 
         $inventory = inventory::find($id);
         if (!$inventory) {
-            return response()->json(['message' => 'Post not found'], 404);
+            return response()->json(['message' => 'inventory not found'], 404);
         }
 
         $inventory->nama_barang = $request->input('nama_barang');

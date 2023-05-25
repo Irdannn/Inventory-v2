@@ -6,7 +6,7 @@
                     <h2 id="heading">Sign Up</h2>
                     <div class="field" [class.error]="signUpForm.controls['name'].dirty && signUpForm.hasError('required', 'name')">
                         <span class="input-icon fa fa-at p-2"></span>
-                        <input autocomplete="off" formControlName="name" class="input-field" type="text" placeholder="name">
+                        <input autocomplete="off" formControlName="name" class="input-field" type="text" placeholder="Nama Lengkap">
                     </div>
                     <small *ngIf="signUpForm.controls['name'].dirty && signUpForm.hasError('required', 'name')" class="text-danger">*Mohon isi Nama Lengkap</small>
                     <div class="form-group pt-3">

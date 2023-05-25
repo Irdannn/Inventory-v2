@@ -21,7 +21,8 @@ class inventory extends Model
         'harga',
         'aksesoris',
         'unit',
-        'status'
+        'status',
+        'picture'
     ];
     public function lihatinventory()
     {

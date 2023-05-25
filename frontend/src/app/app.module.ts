@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgToastModule  } from 'ng-angular-popup';
 import { TokenInterceptor } from './interceptors/token.interceptor';
-//import { JwtHelperService } from '@auth0/angular-jwt';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -17,10 +16,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { QrCodeModule } from 'ng-qrcode';
-// import { ZXingScannerModule } from '@zxing/ngx-scanner';
-// import { WebcamModule } from 'ngx-webcam';
-// import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
-import { SafePipe } from './components/scanner/safe.pipe';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -74,7 +69,6 @@ import { SopRuanganComponent } from './components/sop-ruangan/sop-ruangan.compon
     TutorialComponent,
     DataLaporanComponent,
     ScannerComponent,
-    SafePipe,
     PengembalianComponent,
     SopTableComponent,
     SopComponent,
@@ -99,11 +93,8 @@ import { SopRuanganComponent } from './components/sop-ruangan/sop-ruangan.compon
     MatPaginatorModule,
     MatDialogModule,
     MatFormFieldModule,
-    //WebcamModule,
     QrCodeModule,
     MatIconModule
-    // NgxScannerQrcodeModule
-    // ZXingScannerModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
