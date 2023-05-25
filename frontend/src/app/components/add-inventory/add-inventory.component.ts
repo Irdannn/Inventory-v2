@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, } from '@angular/forms'
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import ValidateForm from 'src/app/helpers/validateform';
+import { Barang } from 'src/app/models/barang';
 //import { AuthapiService } from 'src/app/services/authapi.service';
 import { BarangApiService } from 'src/app/services/barang-api.service';
 //import { UserStoreService } from 'src/app/services/user-store.service';
@@ -15,6 +16,7 @@ import { BarangApiService } from 'src/app/services/barang-api.service';
 export class AddInventoryComponent implements OnInit {
 //public role! :string;
 addInventoryForm!: FormGroup;
+selectedFile!: File;
   
 constructor(
   private fb: FormBuilder, 
@@ -38,12 +40,17 @@ ngOnInit(): void {
     sifat: ['', Validators.required],
     kondisi: ['', Validators.required],
     harga: [],
-    unit: ['', Validators.required]
+    unit: ['', Validators.required],
+    picture: ['', Validators.required]
   });
 }
 
+onFileSelected(event: any) {
+  this.selectedFile = event.target.files[0];
+}
+
 onAddInventory(){
-  if(this.addInventoryForm.valid) {
+  if(this.addInventoryForm.valid ) {
     // send the obj to database
     this.api.addProduct(this.addInventoryForm.value)
     .subscribe({
@@ -61,5 +68,5 @@ onAddInventory(){
     ValidateForm.validateAllformsFields(this.addInventoryForm);
     this.toast.error({detail: "ERROR", summary:"Input Invalid, pastikan semua sudah diisi", duration: 5000});
   }
-}
+  }
 }

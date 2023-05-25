@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('aksesoris')->nullable();
             $table->string('unit')->nullable();
             $table->string('status')->nullable();
+            $table->string('picture')->nullable();
             $table->timestamps();
         });
     }
