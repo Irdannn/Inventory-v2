@@ -24,67 +24,48 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'nama_barang' => 'required',
-            'fasilitas' => 'required',
-            'tempat' => 'required',
-            'jenis'=> 'required',
-            'tahun'=> 'required',
-            'dana'=> 'required',
-            'sifat'=> 'required',
-            'kondisi'=> 'required',
-            'jumlah'=> 'required',
-            'harga'=> 'required',
-            'aksesoris'=> 'required',
-            'unit'=> 'required',
-            'status'=> 'required',
-            'picture' => 'required|mimes:png,jpg|max:5000'
+        $inventory = inventory::create([
+            'nama_barang' => $request->nama_barang,
+            'fasilitas' => $request->fasilitas,
+            'tempat' => $request->tempat,
+            'jenis' => $request->jenis,
+            'tahun' => $request->tahun,
+            'dana' => $request->dana,
+            'sifat' => $request->sifat,
+            'kondisi' => $request->kondisi,
+            'jumlah' => $request->jumlah,
+            'harga' => $request->harga,
+            'aksesoris' => $request-> aksesoris,
+            'unit' => $request->unit,
+            'status' => $request->status,
         ]);
-        
-        
-        $inventory = new inventory();
-        $inventory->nama_barang = $validatedData['nama_barang'];
-        $inventory->fasilitas = $validatedData['fasilitas'];
-        $inventory->tempat = $validatedData['tempat'];
-        $inventory->jenis = $validatedData['jenis'];
-        $inventory->tahun = $validatedData['tahun'];
-        $inventory->dana = $validatedData['dana'];
-        $inventory->sifat = $validatedData['sifat'];
-        $inventory->kondisi = $validatedData['kondisi'];
-        $inventory->jumlah = $validatedData['jumlah'];
-        $inventory->harga = $validatedData['harga'];
-        $inventory->aksesoris = $validatedData['aksesoris'];
-        $inventory->unit = $validatedData['unit'];
-        $inventory->status = $validatedData['status'];
+        return $inventory;
 
-        if ($request->hasFile('picture')) {
-            $picturePath = $request->file('picture')->store('public/pictures');
-            $inventory->picture = Storage::url($picturePath);
-        }
+        // if ($request->hasFile('picture')) {
+        //     $picturePath = $request->file('picture')->store('public/pictures');
+        //     $inventory->picture = Storage::url($picturePath);
+        // }
     
-        $inventory->save();
+        // $inventory->save();
     
-        return response()->json($inventory);
+        // return response()->json($inventory);
     }
 
-    public function getPicture($id)
-    {
-        $inventory = inventory::findOrFail($id);
+    // public function getPicture($id)
+    // {
+    //     $inventory = inventory::findOrFail($id);
 
-        if ($inventory->picture) {
-            $storagePath = str_replace('storage/', '', $inventory->picture);
-            $filePath = storage_path('app/' . $storagePath);
+    //     if ($inventory->picture) {
+    //         $storagePath = str_replace('storage/', '', $inventory->picture);
+    //         $filePath = storage_path('app/' . $storagePath);
 
-            if (file_exists($filePath)) {
-                return response()->file($filePath);
-            }
-        }
+    //         if (file_exists($filePath)) {
+    //             return response()->file($filePath);
+    //         }
+    //     }
 
-        return response()->json(['error' => 'Picture not found'], 404);
-    }
-
-
-
+    //     return response()->json(['error' => 'Picture not found'], 404);
+    // }
 
     public function tempat(Request $request, $tempat)
     {
@@ -121,6 +102,7 @@ class InventoryController extends Controller
             'aksesoris',
             'unit',
             'status'
+            //'picture' => 'required|mimes:png,jpg|max:5000'
         ]);
 
         $inventory = inventory::find($id);

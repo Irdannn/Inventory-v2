@@ -16,6 +16,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { QrCodeModule } from 'ng-qrcode';
+import { NgxFileDropModule } from 'ngx-file-drop';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -94,7 +96,9 @@ import { SopRuanganComponent } from './components/sop-ruangan/sop-ruangan.compon
     MatDialogModule,
     MatFormFieldModule,
     QrCodeModule,
-    MatIconModule
+    MatIconModule,
+    NgxFileDropModule,
+    MatProgressBarModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

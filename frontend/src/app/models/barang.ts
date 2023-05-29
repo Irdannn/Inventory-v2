@@ -13,7 +13,6 @@ export class Barang{
     aksesoris: string;
     unit:string;
     status:string;
-    picture!:string;
 
     constructor(){
         this.id= 0;

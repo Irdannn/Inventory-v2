@@ -7,13 +7,9 @@
         </div>
 
       <div class="container p-5">
-        <form [formGroup]="addInventoryForm" enctype="multipart/form-data">
+        <form [formGroup]="addInventoryForm">
           <h1>Form Input Barang</h1>
-          <div class="form-group">
-            <label for="image">Upload Course Card Image</label>
-            <input type="file" formControlName="picture" (change)="onFileSelected($event)" accept="image/*">
-        </div>
-        
+
           <div class="row">
             <div class="col-25">
               <label for="nama_barang">Nama Barang</label>

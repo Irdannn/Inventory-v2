@@ -2,3 +2,7 @@ button {
     border-radius: 20px;
     height: 40px;
 }
+
+.file-input {
+    display: none;
+  }
