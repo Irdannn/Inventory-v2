@@ -38,11 +38,6 @@ export class AddInventoryKaryawanComponent implements OnInit {
       harga: [],
       unit: ['', Validators.required]
     });
-    // this.userStore.getFullNameFromStore()
-    // .subscribe(val=> {
-    //   // const rolefromToken = this.auth.getRoleFromToken();
-    //   // this.role = val || rolefromToken
-    // })
   }
 
   onAddInventory(){
