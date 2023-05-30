@@ -47,6 +47,7 @@ import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material/d
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import { SopRuanganComponent } from './components/sop-ruangan/sop-ruangan.component';
+import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { SopRuanganComponent } from './components/sop-ruangan/sop-ruangan.compon
     PengembalianComponent,
     SopTableComponent,
     SopComponent,
-    SopRuanganComponent
+    SopRuanganComponent,
+    FileUploaderComponent
   ],
   imports: [
     BrowserModule,

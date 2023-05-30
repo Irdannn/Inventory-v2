@@ -10,7 +10,6 @@
                     <th scope="col">Nama Barang</th>
                     <th scope="col">Kondisi</th>
                     <th scope="col">Ruangan</th>
-                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,10 +24,7 @@
                         {{barang.kondisi}}
                     </td>
                     <td>
-                        {{barang.tempat}}
-                    <td>
-                        <button [routerLink]="['ruangan', barang.tempat]">Lihat berdasar Ruangan</button>
-                    </td>
+                        <button [routerLink]="['ruangan', barang.tempat]">SO Ruangan {{barang.tempat}}</button>
                 </tr>
             </tbody>
         </table>

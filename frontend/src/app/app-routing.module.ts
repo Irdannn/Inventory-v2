@@ -23,6 +23,7 @@ import { PengembalianComponent } from './components/pengembalian/pengembalian.co
 import { SopTableComponent } from './components/soptabel/soptabel.component';
 import { SopComponent } from './components/sop/sop.component';
 import { SopRuanganComponent } from './components/sop-ruangan/sop-ruangan.component';
+import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch: 'full'},
@@ -53,7 +54,8 @@ const routes: Routes = [
   {path: 'dashboard/kembali/:idBarang', component: PengembalianComponent, canActivate:[AuthGuard]},
   {path: 'soptable', component: SopTableComponent, canActivate:[AuthGuard]},
   {path: 'soptable/ruangan/:tempat', component: SopRuanganComponent, canActivate:[AuthGuard]},
-  {path: 'soptable/ruangan/bcim/sop/:idBarang', component: SopComponent, canActivate:[AuthGuard]}
+  {path: 'soptable/ruangan/:tempat/sop/:idBarang', component: SopComponent, canActivate:[AuthGuard]},
+  {path: 'allinventory/upload-picture/:idBarang', component: FileUploaderComponent, canActivate: [AuthGuard]}
   
 ];
 

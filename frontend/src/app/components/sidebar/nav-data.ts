@@ -24,4 +24,8 @@ export const navbarData = [
         icon: 'fal fa-book',
         label: 'Tutorial'
     },
+    {
+        routeLink: '/pictureUpload',
+        label: 'Upload Foto Barang'
+    }
 ];

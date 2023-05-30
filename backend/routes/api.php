@@ -1,12 +1,15 @@
 <?php
 
 use App\Http\Controllers\AlurbarangController;
+use App\Http\Controllers\PictureInvController;
 use App\Http\Controllers\SopController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\LaporanController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,8 +39,21 @@ Route::group(['middleware' => 'api', 'prefix'=> 'inventory'], function($router){
     Route::put('/update/{id}', [InventoryController::class, 'update']);
     Route::patch('/update/{id}', [InventoryController::class, 'update']);
     Route::delete('/destroy/{id}', [InventoryController::class, 'destroy']);
-    Route::get('/show/{id}/picture', [InventoryController::class, 'getPicture']);
+});
 
+// Route::group(['middleware' => 'api', 'prefix'=> 'inv'], function($router){
+//     Route::get('/index', [InventoryController::class, 'index']);
+//     Route::post('/upload', [ImageController::class, 'upload']);
+// });
+
+Route::group(['middleware' => 'api', 'prefix'=> 'picture'], function($router){
+    Route::get('/index', [PictureInvController::class, 'index']);
+    Route::post('/store', [PictureInvController::class, 'store']);
+    Route::get('/show/{id}', [PictureInvController::class, 'show']);
+    Route::put('/update', [PictureInvController::class, 'update']);
+    Route::put('/update/{id}', [PictureInvController::class, 'update']);
+    Route::patch('/update/{id}', [PictureInvController::class, 'update']);
+    Route::delete('/destroy/{id}', [PictureInvController::class, 'destroy']);
 });
 
 Route::group(['middleware' => 'api', 'prefix'=> 'alur'], function($router){

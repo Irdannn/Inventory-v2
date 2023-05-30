@@ -1,0 +1,48 @@
+<app-sidebar>
+  <div class="container p-5">
+      <h1>Form Input Foto Barang</h1>
+      <form #form="ngForm" (ngSubmit)="uploadFile()" [formGroup]="addFotoBarangForm">
+        <div class="row">
+          <div class="col-25">
+            <label for="id_user">ID User</label>
+          </div>
+          <div class="col-75">
+            <input type="number" name="id_user" id="id_user" required readonly formControlName="id_user" [(ngModel)]="id">
+          </div>
+        </div>
+        <div class="row" hidden>
+          <div class="col-25">
+            <label for="id_barang">ID Barang</label>
+          </div>
+          <div class="col-75">
+            <input type="number" name="id_barang" id="id_barang" required readonly formControlName="id_barang" [(ngModel)]="barang.id">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="nama_barang">Nama Barang</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="nama_barang" id="nama_barang" required readonly formControlName="nama_barang" [(ngModel)]="barang.nama_barang">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="nama_user">Peminjam</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="nama_user" id="nama_user" required readonly formControlName="nama_user" [(ngModel)]="fullName">
+          </div>
+        </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="picture">Upload file</label>
+        </div>
+        <div class="col-75">
+          <input name="picture" id="picture" type="file" (change)="onFileSelected($event)" accept="image/*">
+        </div>
+      </div>
+    <button type="submit">Upload</button>
+      </form>
+  </div>
+</app-sidebar>

@@ -21,6 +21,10 @@ export class BarangApiService {
     return this.http.post<any>(`${this.baseurl}store`, inventoryObj)
   }
 
+  fileUpload(formData:any){
+    return this.http.post<any>(`http://127.0.0.1:8000/api/picture/store`, formData)
+  }
+
   getInventory(id_barang: string): Observable<Barang> {
     return this.http.get<Barang>(`${this.baseurl}show/`+ id_barang);
   }
