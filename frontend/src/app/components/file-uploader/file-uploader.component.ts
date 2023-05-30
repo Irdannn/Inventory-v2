@@ -74,6 +74,7 @@ export class FileUploaderComponent implements OnInit {
     if (!this.selectedFile) {
       return;
     }
+    
     const formData = new FormData();
     formData.append('id_user', this.addFotoBarangForm.value.id_user);
     formData.append('id_barang', this.addFotoBarangForm.value.id_barang);

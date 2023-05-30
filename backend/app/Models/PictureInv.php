@@ -15,7 +15,7 @@ class PictureInv extends Model
         'nama_barang',
         'picture'
     ];
-    public $timestamps = false;
+    //public $timestamps = false;
 
     public function user()
     {

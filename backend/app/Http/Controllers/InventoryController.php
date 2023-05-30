@@ -38,6 +38,7 @@ class InventoryController extends Controller
             'aksesoris' => $request-> aksesoris,
             'unit' => $request->unit,
             'status' => $request->status,
+            'picture' => $request->picture
         ]);
         return $inventory;
 
@@ -101,8 +102,9 @@ class InventoryController extends Controller
             'harga',
             'aksesoris',
             'unit',
-            'status'
-            //'picture' => 'required|mimes:png,jpg|max:5000'
+            'status',
+            //'picture'
+            'picture' => 'required|mimes:png,jpg|max:5000'
         ]);
 
         $inventory = inventory::find($id);
@@ -123,6 +125,7 @@ class InventoryController extends Controller
         $inventory->aksesoris = $request->input('aksesoris');
         $inventory->unit = $request->input('unit');
         $inventory->status = $request->input('status');
+        $inventory->picture = $request->input('picture');
         $inventory->save();
 
         return $inventory;

@@ -49,11 +49,11 @@ Route::group(['middleware' => 'api', 'prefix'=> 'inventory'], function($router){
 Route::group(['middleware' => 'api', 'prefix'=> 'picture'], function($router){
     Route::get('/index', [PictureInvController::class, 'index']);
     Route::post('/store', [PictureInvController::class, 'store']);
-    Route::get('/show/{id}', [PictureInvController::class, 'show']);
-    Route::put('/update', [PictureInvController::class, 'update']);
-    Route::put('/update/{id}', [PictureInvController::class, 'update']);
-    Route::patch('/update/{id}', [PictureInvController::class, 'update']);
-    Route::delete('/destroy/{id}', [PictureInvController::class, 'destroy']);
+    Route::get('/show/{id}/picture', [PictureInvController::class, 'show']);
+    // Route::put('/update', [PictureInvController::class, 'update']);
+    // Route::put('/update/{id}', [PictureInvController::class, 'update']);
+    // Route::patch('/update/{id}', [PictureInvController::class, 'update']);
+    // Route::delete('/destroy/{id}', [PictureInvController::class, 'destroy']);
 });
 
 Route::group(['middleware' => 'api', 'prefix'=> 'alur'], function($router){

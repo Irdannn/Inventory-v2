@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Barang } from '../models/barang';
 import { Observable } from 'rxjs';
+import { Picture } from '../models/picture';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,8 @@ import { Observable } from 'rxjs';
 export class BarangApiService {
 
   private baseurl = "http://127.0.0.1:8000/api/inventory/";
+  private picturl = "http://127.0.0.1:8000/api/picture/";
+
   constructor(private http : HttpClient) { 
     
   }
@@ -22,11 +25,15 @@ export class BarangApiService {
   }
 
   fileUpload(formData:any){
-    return this.http.post<any>(`http://127.0.0.1:8000/api/picture/store`, formData)
+    return this.http.post<any>(`${this.picturl}store`, formData)
   }
 
   getInventory(id_barang: string): Observable<Barang> {
     return this.http.get<Barang>(`${this.baseurl}show/`+ id_barang);
+  }
+
+  getPictInventory(id: string): Observable<Picture> {
+    return this.http.get<Picture>(`${this.picturl}show/ ${id}/picture`);
   }
 
   getInventorybytempat(tempat: string): Observable<Barang> {

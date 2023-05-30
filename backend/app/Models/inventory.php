@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\PictureInv;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,10 +22,15 @@ class inventory extends Model
         'harga',
         'aksesoris',
         'unit',
-        'status'
+        'status',
+        'picture'
     ];
     public function lihatinventory()
     {
         return $this->hasMany(inventory::class);
     }
+    // public function pictures()
+    // {
+    //     return $this->hasMany(PictureInv::class);
+    // }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\inventory;
 use App\Models\PictureInv;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -40,41 +41,63 @@ class PictureInvController extends Controller
             $picturePath = $request->file('picture')->store('pubic/pictures');
             $picture->picture = Storage::url($picturePath);
         }
-
         $picture->save();
+        if ($request->has('id_barang')) {
+            $inventory = inventory::find($request->input('id_barang'));
+            $inventory->update(['picture' => $request->input('picture')]);
+        }
 
         return $picture;
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(PictureInv $pictureInv)
+    // public function store(Request $request)
+    // {
+    //     $picture = PictureInv::create([
+    //         'id_user' => $request->id_user,
+    //         'id_barang' => $request->id_barang,
+    //         'nama_user' => $request->nama_user,
+    //         'nama_barang' => $request->nama_barang,
+    //         'picture' => $request->picture
+    //     ]);
+    //     if ($request->hasFile('picture')){
+    //             $picturePath = $request->file('picture')->store('pubic/pictures');
+    //             $picture->picture = Storage::url($picturePath);
+    //         }
+    //     if ($request->has('id_barang')) {
+    //         $inventory = inventory::find($request->input('id_barang'));
+    //         $inventory->update(['picture' => $request->input('picture')]);
+    //     }
+    //     return $picture;
+    // }
+
+    // public function getPicture($id)
+    // {
+    //     $inventory = inventory::findOrFail($id);
+
+    //     if ($inventory->picture) {
+    //         $storagePath = str_replace('storage/', '', $inventory->picture);
+    //         $filePath = storage_path('app/' . $storagePath);
+
+    //         if (file_exists($filePath)) {
+    //             return response()->file($filePath);
+    //         }
+    //     }
+
+    //     return response()->json(['error' => 'Picture not found'], 404);
+    // }
+    public function show($id)
     {
-        return Storage::response($pictureInv->picture);
+        $picture = PictureInv::findOrFail($id);
+
+    if ($picture->picture) {
+        $storagePath = str_replace('storage/', '', $picture->picture);
+        $filePath = storage_path('app/' . $storagePath);
+
+        if (file_exists($filePath)) {
+            return response()->file($filePath);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(PictureInv $pictureInv)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, PictureInv $pictureInv)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(PictureInv $pictureInv)
-    {
-        //
+    return response()->json(['error' => 'Picture not found'], 404);
     }
 }

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('nama_user')->nullable();
             $table->string('nama_barang')->nullable();
             $table->string('picture')->nullable();
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 
