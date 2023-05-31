@@ -9,7 +9,14 @@
       <div class="container p-5">
         <form [formGroup]="addInventoryForm">
           <h1>Form Input Barang</h1>
-
+          <div class="row">
+            <div class="col-25">
+              <label for="picture">Upload file</label>
+            </div>
+            <div class="col-75">
+              <input name="picture" id="picture" type="file" (change)="onFileSelected($event)" accept="image/*">
+            </div>
+          </div>
           <div class="row">
             <div class="col-25">
               <label for="nama_barang">Nama Barang</label>

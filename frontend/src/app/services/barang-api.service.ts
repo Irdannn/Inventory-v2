@@ -20,8 +20,8 @@ export class BarangApiService {
     return this.http.get<any>(`${this.baseurl}index`);
   }
 
-  addProduct(inventoryObj:any){
-    return this.http.post<any>(`${this.baseurl}store`, inventoryObj)
+  addProduct(formData:any){
+    return this.http.post<any>(`${this.baseurl}store`, formData)
   }
 
   fileUpload(formData:any){
@@ -32,8 +32,8 @@ export class BarangApiService {
     return this.http.get<Barang>(`${this.baseurl}show/`+ id_barang);
   }
 
-  getPictInventory(id: string): Observable<Picture> {
-    return this.http.get<Picture>(`${this.picturl}show/ ${id}/picture`);
+  getPictInventory(id_barang: any): Observable<Barang> {
+    return this.http.get<Barang>(`${this.baseurl}showpict/ ${id_barang}/picture`);
   }
 
   getInventorybytempat(tempat: string): Observable<Barang> {

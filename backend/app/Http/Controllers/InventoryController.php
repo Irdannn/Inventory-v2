@@ -57,13 +57,10 @@ class InventoryController extends Controller
         $inventory -> unit = $request['unit'];
         $inventory -> status = $request['status']; 
 
-        if ($request->hasFile('picture')) {
-            $image = $request->file('picture');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
-            $inventory->picture = $imageName;
+        if ($request->hasFile('picture')){
+            $picturePath = $request->file('picture')->store('pubic/pictures');
+            $inventory->picture = Storage::url($picturePath);
         }
-
         $inventory->save();
 
 
@@ -111,11 +108,9 @@ class InventoryController extends Controller
         $inventory->status = $request->input('status');
         $inventory->picture = $request->input('picture');
 
-        if ($request->hasFile('picture')) {
-            $image = $request->file('picture');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
-            $inventory->picture = $imageName;
+        if ($request->hasFile('picture')){
+            $picturePath = $request->file('picture')->store('pubic/pictures');
+            $inventory->picture = Storage::url($picturePath);
         }
         $inventory->save();
 
@@ -151,10 +146,21 @@ class InventoryController extends Controller
         }
     }
 
+    
+
     return response()->json(['error' => 'Picture not found'], 404);
     }
     
+    public function view($id)
+    {
+        $picture = inventory::find($id);
 
+        if (!$picture) {
+            return response()->json(['message' => 'Picture not found'], 404);
+        }
+
+        return response()->json(['picture' => $picture]);
+    }
     /**
      * Remove the specified resource from storage.
      */
