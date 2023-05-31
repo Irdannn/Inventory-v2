@@ -34,10 +34,9 @@ Route::group(['middleware' => 'api', 'prefix'=> 'inventory'], function($router){
     Route::get('/index', [InventoryController::class, 'index']);
     Route::post('/store', [InventoryController::class, 'store']);
     Route::get('/show/{id}', [InventoryController::class, 'show']);
+    Route::get('/showpict/{id}/picture', [InventoryController::class, 'showpict']);
     Route::get('/tempat/{tempat}', [InventoryController::class, 'tempat']);
-    Route::put('/update', [InventoryController::class, 'update']);
     Route::put('/update/{id}', [InventoryController::class, 'update']);
-    Route::patch('/update/{id}', [InventoryController::class, 'update']);
     Route::delete('/destroy/{id}', [InventoryController::class, 'destroy']);
 });
 

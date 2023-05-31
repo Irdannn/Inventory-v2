@@ -24,69 +24,53 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        $inventory = inventory::create([
-            'nama_barang' => $request->nama_barang,
-            'fasilitas' => $request->fasilitas,
-            'tempat' => $request->tempat,
-            'jenis' => $request->jenis,
-            'tahun' => $request->tahun,
-            'dana' => $request->dana,
-            'sifat' => $request->sifat,
-            'kondisi' => $request->kondisi,
-            'jumlah' => $request->jumlah,
-            'harga' => $request->harga,
-            'aksesoris' => $request-> aksesoris,
-            'unit' => $request->unit,
-            'status' => $request->status,
-            'picture' => $request->picture
+        $this->validate($request, [
+            'nama_barang' => 'required',
+            'fasilitas' => 'required',
+            'tempat' => 'required',
+            'jenis' => 'required',
+            'tahun',
+            'dana',
+            'sifat' => 'required',
+            'kondisi' => 'required',
+            'jumlah' => 'required',
+            'harga',
+            'aksesoris',
+            'unit' => 'required',
+            'status',
+            'picture' => 'nullable|mimes:jpeg,png|max:5000'
+            //'picture' => 'required|mimes:jpeg,png|max:5000'
         ]);
-        return $inventory;
 
-        // if ($request->hasFile('picture')) {
-        //     $picturePath = $request->file('picture')->store('public/pictures');
-        //     $inventory->picture = Storage::url($picturePath);
-        // }
-    
-        // $inventory->save();
-    
-        // return response()->json($inventory);
-    }
+        $inventory = new inventory();
+        $inventory -> nama_barang = $request['nama_barang'];
+        $inventory -> fasilitas = $request['fasilitas'];
+        $inventory -> tempat = $request['tempat'];
+        $inventory -> jenis = $request['jenis'];
+        $inventory -> tahun = $request['tahun'];
+        $inventory -> dana = $request['dana'];
+        $inventory -> sifat = $request['sifat'];
+        $inventory -> kondisi = $request['kondisi'];
+        $inventory -> jumlah= $request['jumlah'];
+        $inventory -> harga = $request['harga'];
+        $inventory -> aksesoris = $request['aksesoris'];
+        $inventory -> unit = $request['unit'];
+        $inventory -> status = $request['status']; 
 
-    // public function getPicture($id)
-    // {
-    //     $inventory = inventory::findOrFail($id);
+        if ($request->hasFile('picture')) {
+            $image = $request->file('picture');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+            $inventory->picture = $imageName;
+        }
 
-    //     if ($inventory->picture) {
-    //         $storagePath = str_replace('storage/', '', $inventory->picture);
-    //         $filePath = storage_path('app/' . $storagePath);
+        $inventory->save();
 
-    //         if (file_exists($filePath)) {
-    //             return response()->file($filePath);
-    //         }
-    //     }
-
-    //     return response()->json(['error' => 'Picture not found'], 404);
-    // }
-
-    public function tempat(Request $request, $tempat)
-    {
-        // Retrieve inventory by tempat
-        $inventory = inventory::where('tempat', $tempat)->get();
 
         return $inventory;
+
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show($id)
-    {
-        return inventory::find($id);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id)
     {
         $this->validate($request, [
@@ -126,10 +110,50 @@ class InventoryController extends Controller
         $inventory->unit = $request->input('unit');
         $inventory->status = $request->input('status');
         $inventory->picture = $request->input('picture');
+
+        if ($request->hasFile('picture')) {
+            $image = $request->file('picture');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+            $inventory->picture = $imageName;
+        }
         $inventory->save();
 
         return $inventory;
     }
+
+    public function tempat(Request $request, $tempat)
+    {
+        // Retrieve inventory by tempat
+        $inventory = inventory::where('tempat', $tempat)->get();
+
+        return $inventory;
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show($id)
+    {
+        return inventory::find($id);
+    }
+
+    public function showpict($id)
+    {
+        $picture = inventory::findOrFail($id);
+
+    if ($picture->picture) {
+        $storagePath = str_replace('storage/', '', $picture->picture);
+        $filePath = storage_path('app/' . $storagePath);
+
+        if (file_exists($filePath)) {
+            return response()->file($filePath);
+        }
+    }
+
+    return response()->json(['error' => 'Picture not found'], 404);
+    }
+    
 
     /**
      * Remove the specified resource from storage.

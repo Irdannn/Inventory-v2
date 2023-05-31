@@ -42,10 +42,6 @@ class PictureInvController extends Controller
             $picture->picture = Storage::url($picturePath);
         }
         $picture->save();
-        if ($request->has('id_barang')) {
-            $inventory = inventory::find($request->input('id_barang'));
-            $inventory->update(['picture' => $request->input('picture')]);
-        }
 
         return $picture;
     }
