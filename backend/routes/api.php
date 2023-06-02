@@ -41,10 +41,6 @@ Route::group(['middleware' => 'api', 'prefix'=> 'inventory'], function($router){
     Route::delete('/destroy/{id}', [InventoryController::class, 'destroy']);
 });
 
-// Route::group(['middleware' => 'api', 'prefix'=> 'inv'], function($router){
-//     Route::get('/index', [InventoryController::class, 'index']);
-//     Route::post('/upload', [ImageController::class, 'upload']);
-// });
 
 Route::group(['middleware' => 'api', 'prefix'=> 'picture'], function($router){
     Route::get('/index', [PictureInvController::class, 'index']);

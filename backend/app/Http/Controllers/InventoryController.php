@@ -10,18 +10,12 @@ use Illuminate\Support\Facades\Storage;
 
 class InventoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $inventory = inventory::all()->toArray();
         return $inventory;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -84,8 +78,7 @@ class InventoryController extends Controller
             'aksesoris',
             'unit',
             'status',
-            //'picture'
-            'picture' => 'required|mimes:png,jpg|max:5000'
+            'picture' => 'nullable|mimes:jpeg,png|max:5000'
         ]);
 
         $inventory = inventory::find($id);
@@ -106,8 +99,6 @@ class InventoryController extends Controller
         $inventory->aksesoris = $request->input('aksesoris');
         $inventory->unit = $request->input('unit');
         $inventory->status = $request->input('status');
-        $inventory->picture = $request->input('picture');
-
         if ($request->hasFile('picture')){
             $picturePath = $request->file('picture')->store('pubic/pictures');
             $inventory->picture = Storage::url($picturePath);
@@ -119,15 +110,11 @@ class InventoryController extends Controller
 
     public function tempat(Request $request, $tempat)
     {
-        // Retrieve inventory by tempat
         $inventory = inventory::where('tempat', $tempat)->get();
 
         return $inventory;
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show($id)
     {
         return inventory::find($id);
@@ -145,9 +132,6 @@ class InventoryController extends Controller
             return response()->file($filePath);
         }
     }
-
-    
-
     return response()->json(['error' => 'Picture not found'], 404);
     }
     
@@ -161,9 +145,7 @@ class InventoryController extends Controller
 
         return response()->json(['picture' => $picture]);
     }
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy($id)
     {
         $inventory = inventory::find($id);

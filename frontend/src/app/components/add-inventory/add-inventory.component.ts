@@ -1,10 +1,8 @@
-import { HttpClient, HttpEventType } from '@angular/common/http';
-import { Component, Input, OnInit} from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, } from '@angular/forms'
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
-import { Subscription, finalize } from 'rxjs';
-import ValidateForm from 'src/app/helpers/validateform';
 import { Barang } from 'src/app/models/barang';
 //import { AuthapiService } from 'src/app/services/authapi.service';
 import { BarangApiService } from 'src/app/services/barang-api.service';
