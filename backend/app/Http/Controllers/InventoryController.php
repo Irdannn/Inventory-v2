@@ -7,6 +7,7 @@ use App\Models\sop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class InventoryController extends Controller
 {
@@ -33,38 +34,72 @@ class InventoryController extends Controller
             'unit' => 'required',
             'status',
             'picture' => 'nullable|mimes:jpeg,png|max:5000'
-            //'picture' => 'required|mimes:jpeg,png|max:5000'
         ]);
 
         $inventory = new inventory();
-        $inventory -> nama_barang = $request['nama_barang'];
-        $inventory -> fasilitas = $request['fasilitas'];
-        $inventory -> tempat = $request['tempat'];
-        $inventory -> jenis = $request['jenis'];
-        $inventory -> tahun = $request['tahun'];
-        $inventory -> dana = $request['dana'];
-        $inventory -> sifat = $request['sifat'];
-        $inventory -> kondisi = $request['kondisi'];
-        $inventory -> jumlah= $request['jumlah'];
-        $inventory -> harga = $request['harga'];
-        $inventory -> aksesoris = $request['aksesoris'];
-        $inventory -> unit = $request['unit'];
-        $inventory -> status = $request['status']; 
 
-        if ($request->hasFile('picture')){
+        if ($request->hasFile('picture')) {
             $picturePath = $request->file('picture')->store('pubic/pictures');
             $inventory->picture = Storage::url($picturePath);
+            $inventory->nama_barang = $request->input('nama_barang');
+            $inventory->fasilitas = $request->input('fasilitas');
+            $inventory->tempat = $request->input('tempat');
+            $inventory->jenis = $request->input('jenis');
+            $inventory->tahun = $request->input('tahun');
+            $inventory->dana = $request->input('dana');
+            $inventory->sifat = $request->input('sifat');
+            $inventory->kondisi = $request->input('kondisi');
+            $inventory->jumlah = $request->input('jumlah');
+            $inventory->harga = $request->input('harga');
+            $inventory->aksesoris = $request->input('aksesoris');
+            $inventory->unit = $request->input('unit');
+            $inventory->status = $request->input('status');
+            $inventory->picture = Storage::url($picturePath); // Save the path starting with 'storage/'
+            $inventory->save();
+
+            return response()->json(['message' => 'Picture uploaded successfully']);
         }
-        $inventory->save();
 
 
         return $inventory;
 
     }
 
+    public function updatePict(Request $request, $id)
+    {
+        $request->validate([
+            'picture' => 'required|image|max:2048',
+            //'name' => 'required|string|max:255'
+        ]);
+    
+        $inventory = Inventory::find($id);
+    
+        if (!$inventory) {
+            return response()->json(['message' => 'Inventory not found'], 404);
+        }
+    
+        // Update the inventory name
+        //$inventory->name = $request->input('name');
+    
+        // Check if a new picture is provided
+        if ($request->hasFile('picture')) {
+            // Delete the old picture if it exists
+            $oldPicturePath = str_replace('storage/', 'public/', $inventory->picture);
+            Storage::delete($oldPicturePath);
+    
+            // Store and update the new picture
+            $newPicturePath = $request->file('picture')->store('public/pictures');
+            $inventory->picture = $newPicturePath;
+        }
+    
+        $inventory->save();
+    
+        return response()->json(['message' => 'Inventory updated successfully']);
+    }
+
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
+        $request->validate([
             'nama_barang' => 'required',
             'fasilitas' => 'required',
             'tempat' => 'required',
@@ -78,14 +113,9 @@ class InventoryController extends Controller
             'aksesoris',
             'unit',
             'status',
-            'picture' => 'nullable|mimes:jpeg,png|max:5000'
         ]);
 
-        $inventory = inventory::find($id);
-        if (!$inventory) {
-            return response()->json(['message' => 'inventory not found'], 404);
-        }
-
+        $inventory=inventory::findOrFail($id);
         $inventory->nama_barang = $request->input('nama_barang');
         $inventory->fasilitas = $request->input('fasilitas');
         $inventory->tempat = $request->input('tempat');
@@ -99,10 +129,6 @@ class InventoryController extends Controller
         $inventory->aksesoris = $request->input('aksesoris');
         $inventory->unit = $request->input('unit');
         $inventory->status = $request->input('status');
-        if ($request->hasFile('picture')){
-            $picturePath = $request->file('picture')->store('pubic/pictures');
-            $inventory->picture = Storage::url($picturePath);
-        }
         $inventory->save();
 
         return $inventory;

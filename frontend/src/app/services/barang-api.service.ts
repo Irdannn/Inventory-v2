@@ -44,8 +44,12 @@ export class BarangApiService {
   //   return this.http.put<Barang>(`${this.baseurl}update.php?id_barang=`+ id_barang, updateInventoryRequest);
   // }
 
-  updateBarang(id_barang: number, formData:any): Observable<Barang>{
-    return this.http.put<Barang>(`${this.baseurl}update/`+ id_barang, formData);
+  updateBarang(id: number, formData:any): Observable<Barang>{
+    return this.http.put<Barang>(`${this.baseurl}update/`+ id, formData);
+  }
+
+  updateGambarBarang(id: number, formData:any): Observable<Barang>{
+    return this.http.put<Barang>(`${this.baseurl}updatepict/`+ id, formData);
   }
 
   // updateBarang(barang: Barang): Observable<Barang> {
