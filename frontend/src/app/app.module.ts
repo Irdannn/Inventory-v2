@@ -48,6 +48,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import { SopRuanganComponent } from './components/sop-ruangan/sop-ruangan.component';
 import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
+import { EditGambarComponent } from './components/edit-gambar/edit-gambar.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { FileUploaderComponent } from './components/file-uploader/file-uploader.
     SopTableComponent,
     SopComponent,
     SopRuanganComponent,
-    FileUploaderComponent
+    FileUploaderComponent,
+    EditGambarComponent
   ],
   imports: [
     BrowserModule,

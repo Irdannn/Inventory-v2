@@ -1,0 +1,29 @@
+<app-sidebar>
+    <!-- <ng-container *ngIf="role === 'Admin'"> -->
+      <ng-container>
+    <hr>
+  <div class="container p-5">
+      <form (ngSubmit)="editGambar()" [formGroup]="editGambarForm">
+        <div class="row">
+          <div class="col-25">
+            <label for="nama_barang">Nama Barang</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="nama_barang" name="nama_barang" formControlName="nama_barang" [(ngModel)]="barang.nama_barang" required> 
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="picture">Upload file</label>
+          </div>
+          <div class="col-75">
+            <input name="picture" formControlName="picture" id="picture" type="file" (change)="onFileSelected($event)" accept="image/*">
+          </div>
+        </div>
+      <div class="row">
+        <button type="submit" class="half-button"> Save </button>
+      </div>
+      </form>
+      </div>
+    </ng-container>
+  </app-sidebar>

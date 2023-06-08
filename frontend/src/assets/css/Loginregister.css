@@ -1,10 +1,14 @@
 .outer{
-  height: 100%;
+  height: 100vh;
   background: linear-gradient(to top, #c9c9ff 50%, #6e6ef6) no-repeat;  
 }
 
 .panel-body {
-    margin-top: 60px;
+    margin: auto;
+}
+
+.panel-body-login {
+  margin-top: 60px;
 }
 
 .form {
@@ -29,7 +33,8 @@
     text-align: center;
     margin: 2em;
     color: rgb(255, 255, 255);
-    font-size: 1.2em;
+    font-size: 1.5em;
+    font-weight: bold;
   }
   
   .field {

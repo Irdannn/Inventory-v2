@@ -13,7 +13,7 @@ export class Barang{
     aksesoris: string;
     unit:string;
     status:string;
-    picture:string;
+    picture!:File;
 
     constructor(){
         this.id= 0;
@@ -30,6 +30,5 @@ export class Barang{
         this.aksesoris="";
         this.unit="";
         this.status="";
-        this.picture="";
     }
 }
