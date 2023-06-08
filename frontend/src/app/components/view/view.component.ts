@@ -3,7 +3,6 @@ import { BarangApiService } from 'src/app/services/barang-api.service';
 import { ActivatedRoute } from '@angular/router';
 import { Barang } from 'src/app/models/barang';
 import { HttpClient } from '@angular/common/http';
-import { Picture } from 'src/app/models/picture';
 
 @Component({
   selector: 'app-view',
@@ -12,7 +11,7 @@ import { Picture } from 'src/app/models/picture';
 })
 export class ViewComponent implements OnInit {
   barang:Barang  = new Barang();
-  picture:Picture = new Picture();
+  picture:any;
 
   constructor(
     private api: BarangApiService,
@@ -29,11 +28,10 @@ export class ViewComponent implements OnInit {
           .subscribe({
             next: (response) => {
               this.barang = response;
-              //this.loadPicture()
             }
-          })
+          });
         }
       }
-    })
+    });
   }
 }

@@ -24,6 +24,7 @@ import { SopTableComponent } from './components/soptabel/soptabel.component';
 import { SopComponent } from './components/sop/sop.component';
 import { SopRuanganComponent } from './components/sop-ruangan/sop-ruangan.component';
 import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
+import { EditGambarComponent } from './components/edit-gambar/edit-gambar.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch: 'full'},
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path: 'allinventory', component: AllInventoryComponent, canActivate:[AuthGuard]},
   {path: 'alurbarang', component: AlurBarangComponent, canActivate:[AuthGuard]},
   {path: 'allinventory/edit/:idBarang', component: EditComponent, canActivate: [AuthGuard]},
+  {path: 'allinventory/edit-gambar/:idBarang', component: EditGambarComponent, canActivate: [AuthGuard]},
   {path: 'allinventory/printcard/:idBarang', component: PrintcardComponent, canActivate: [AuthGuard]},
   {path: 'dashboard/peminjaman/:idBarang', component: PeminjamanComponent, canActivate: [AuthGuard]},
   {path: 'dashboard/laporan/:idBarang', component: LaporanComponent, canActivate: [AuthGuard]},
