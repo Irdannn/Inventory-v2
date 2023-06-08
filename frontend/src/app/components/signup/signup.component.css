@@ -1,14 +1,6 @@
 .outer{
-    height: 100vh;
+    height: 100%;
     background: linear-gradient(to top, #c9c9ff 50%, #6e6ef6) no-repeat;  
-  }
-  
-  .panel-body {
-      margin: auto;
-  }
-  
-  .panel-body-login {
-    margin-top: 60px;
   }
   
   .form {
@@ -71,62 +63,60 @@
       color: red;
   }
     
-    .form .btn {
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      margin-bottom: 1rem;
-    }
-    
-    .button1 {
-      padding: 0.5em;
-      padding-left: 1.1em;
-      padding-right: 1.1em;
-      border-radius: 5px;
-      margin-right: 0.5em;
+  .button {
+    background-color: rgb(52,58,64);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 100%;
+    font-family: poppins;
+    text-align: center;
+  }
+  
+  .button:hover {
+    background-color: black;
+    color: white;
+  }
+
+  .noakun{
+    text-align: space-around;
+    color:rgba(255, 255, 255, 0.411)
+  }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+      font-family: poppins;
+      background-color: #171717;
       border: none;
-      outline: none;
-      transition: .4s ease-in-out;
-      background-color: #252525;
-      color: white;
-      width: 10vw;
+      color: #637575;
     }
-    
-    .button1:hover {
-      background-color: black;
-      color: white;
-    }
-    
-    .button2 {
-      width: 10vw;
-      padding: 0.5em;
-      padding-left: 2.3em;
-      padding-right: 2.3em;
-      border-radius: 5px;
+
+    input, option {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+      font-family: poppins;
+      background-color: #171717;
       border: none;
-      outline: none;
-      transition: .4s ease-in-out;
-      background-color: #252525;
       color: white;
     }
-    
-    .button2:hover {
-      background-color: black;
-      color: white;
-    }
-    
-    .button3 {
-      margin-bottom: 3em;
-      padding: 0.5em;
-      border-radius: 5px;
+
+    input[type=text] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+      font-family: poppins;
+      background-color: transparent;
       border: none;
-      outline: none;
-      transition: .4s ease-in-out;
-      background-color: #252525;
-      color: white;
-    }
-    
-    .button3:hover {
-      background-color: red;
       color: white;
     }

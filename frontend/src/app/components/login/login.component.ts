@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit{
           this.auth.storeToken(res.accessToken);
           // this.auth.storeRefreshToken(res.refreshToken);
           this.toast.success({detail: "SUCCESS", summary:"Assalamualaikum", duration: 5000});
-          this.router.navigate(['profile'])
+          this.router.navigate(['dashboard'])
         },
         error:(err)=>{
           this.toast.error({detail: "ERROR", summary:"Something went wrong!", duration: 5000});
