@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlurbarangController;
-use App\Http\Controllers\PictureInvController;
+use App\Http\Controllers\PictureController;
 use App\Http\Controllers\SopController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -37,7 +37,7 @@ Route::group(['middleware' => 'api', 'prefix'=> 'inventory'], function($router){
     Route::get('/view/{id}', [InventoryController::class, 'view']);
     Route::get('/showpict/{id}/picture', [InventoryController::class, 'showpict']);
     Route::put('updatepict/{id}', [InventoryController::class, 'updatePict']);
-    Route::patch('updatepict/{id}', [InventoryController::class, 'updatePict']);
+    //Route::patch('updatepict/{id}', [InventoryController::class, 'updatePict']);
     Route::get('/tempat/{tempat}', [InventoryController::class, 'tempat']);
     Route::put('/update/{id}', [InventoryController::class, 'update']);
     Route::delete('/destroy/{id}', [InventoryController::class, 'destroy']);
@@ -45,13 +45,11 @@ Route::group(['middleware' => 'api', 'prefix'=> 'inventory'], function($router){
 
 
 Route::group(['middleware' => 'api', 'prefix'=> 'picture'], function($router){
-    Route::get('/index', [PictureInvController::class, 'index']);
-    Route::post('/store', [PictureInvController::class, 'store']);
-    Route::get('/show/{id}/picture', [PictureInvController::class, 'show']);
-    // Route::put('/update', [PictureInvController::class, 'update']);
-    // Route::put('/update/{id}', [PictureInvController::class, 'update']);
-    // Route::patch('/update/{id}', [PictureInvController::class, 'update']);
-    // Route::delete('/destroy/{id}', [PictureInvController::class, 'destroy']);
+    Route::get('/index', [PictureController::class, 'index']);
+    Route::post('/store', [PictureController::class, 'store']);
+    Route::get('/show/{id}/image', [PictureController::class, 'getImage']);
+    Route::put('/update/{id}', [PictureController::class, 'update']);
+    // Route::delete('/destroy/{id}', [PictureController::class, 'destroy']);
 });
 
 Route::group(['middleware' => 'api', 'prefix'=> 'alur'], function($router){

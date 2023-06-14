@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { Barang } from 'src/app/models/barang';
@@ -41,8 +41,8 @@ export class EditGambarComponent implements  OnInit {
       }
     });
     this.editGambarForm = this.fb.group({
-      nama_barang : "",
-      picture: null
+      nama_barang : ['', Validators.required],
+      picture: [File]
     });
   }
 

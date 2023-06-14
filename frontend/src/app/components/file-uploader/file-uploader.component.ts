@@ -18,9 +18,7 @@ export class FileUploaderComponent implements OnInit {
   barang:Barang  = new Barang();
   picture:Picture = new Picture();
   addFotoBarangForm!: FormGroup;
-
-  public fullName:string = "";
-  public id:string = "";
+  
   selectedFile: File | null = null;
 
   constructor(
@@ -52,18 +50,8 @@ export class FileUploaderComponent implements OnInit {
       id_barang: [Validators.required],
       nama_user: ['', Validators.required],
       nama_barang: ['', Validators.required],
-      picture: [File]
+      image: [File]
     });
-    this.userStore.getFullNameFromStore()
-    .subscribe(val=>{
-      let fullNameFromToken = this.auth.getfullNameFromToken();
-      this.fullName = val || fullNameFromToken;
-    });
-    this.userStore.getIDFromStore()
-    .subscribe(val=>{
-      let idFromToken = this.auth.getIdFromToken()
-      this.id=val || idFromToken;
-    })
   }
 
   onFileSelected(event: any) {
@@ -76,11 +64,9 @@ export class FileUploaderComponent implements OnInit {
     }
     
     const formData = new FormData();
-    formData.append('id_user', this.addFotoBarangForm.value.id_user);
     formData.append('id_barang', this.addFotoBarangForm.value.id_barang);
-    formData.append('nama_user', this.addFotoBarangForm.value.nama_user);
     formData.append('nama_barang', this.addFotoBarangForm.value.nama_barang);
-    formData.append('picture', this.selectedFile);
+    formData.append('image', this.selectedFile);
     this.api.fileUpload(formData)
       .subscribe({
         next:()=>{

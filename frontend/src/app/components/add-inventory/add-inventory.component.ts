@@ -3,6 +3,7 @@ import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, } from '@angular/forms'
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import ValidateForm from 'src/app/helpers/validateform';
 import { Barang } from 'src/app/models/barang';
 //import { AuthapiService } from 'src/app/services/authapi.service';
 import { BarangApiService } from 'src/app/services/barang-api.service';
@@ -54,6 +55,8 @@ onFileSelected(event: any) {
       return;
     }
 
+    if(this.addInventoryForm.valid) {
+
     const formData = new FormData();
     formData.append('nama_barang',this.addInventoryForm.value.nama_barang);
     formData.append('fasilitas', this.addInventoryForm.value.fasilitas);
@@ -96,6 +99,11 @@ onFileSelected(event: any) {
   //     // check if the form is invalid
   //     ValidateForm.validateAllformsFields(this.addInventoryForm);
   //     this.toast.error({detail: "ERROR", summary:"Input Invalid, pastikan semua sudah diisi", duration: 5000});
-  //   }
+    }else {
+        console.log("form is not valid")
+        // check if the form is invalid
+        ValidateForm.validateAllformsFields(this.addInventoryForm);
+        this.toast.error({detail: "ERROR", summary:"Input Invalid, pastikan semua sudah diisi", duration: 5000});   
+}
   }
 }

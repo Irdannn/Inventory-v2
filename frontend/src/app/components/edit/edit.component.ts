@@ -39,12 +39,6 @@ export class EditComponent implements OnInit{
         }
       }
     });
-
-    this.userStore.getFullNameFromStore()
-    .subscribe(val=> {
-      //const rolefromToken = this.auth.getRoleFromToken();
-      //this.role = val || rolefromToken
-    })
   }
 
 
