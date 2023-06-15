@@ -9,7 +9,7 @@ import { TokenApiModel } from '../models/token-api.model';
 })
 export class AuthService {
 
-  private baseurl:string = "http://localhost:8000/api/auth/";
+  private baseurl:string = "https://backend.insanmuliamalang.sch.id/api/auth/";
   private userPayLoad:any;
   constructor(private http : HttpClient, private router: Router) { 
     this.userPayLoad = this.decodedToken();

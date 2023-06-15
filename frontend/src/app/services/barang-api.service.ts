@@ -9,8 +9,8 @@ import { Picture } from '../models/picture';
 })
 export class BarangApiService {
 
-  private baseurl = "http://127.0.0.1:8000/api/inventory/";
-  private picturl = "http://127.0.0.1:8000/api/picture/";
+  private baseurl = "https://backend.insanmuliamalang.sch.id/api/inventory/";
+  private picturl = "https://backend.insanmuliamalang.sch.id/api/picture/";
 
   constructor(private http : HttpClient) { 
     

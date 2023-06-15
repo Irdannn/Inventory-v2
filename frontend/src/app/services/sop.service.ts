@@ -8,7 +8,7 @@ import { Sop } from '../models/sop';
 })
 export class SopService {
 
-  private baseurl = "http://127.0.0.1:8000/api/sop/"; 
+  private baseurl = "https://backend.insanmuliamalang.sch.id/api/sop/"; 
   constructor( private http : HttpClient) { }
 
   getAllSop(){
