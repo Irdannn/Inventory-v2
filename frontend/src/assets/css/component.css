@@ -187,6 +187,13 @@ button:focus {
   place-content: center;
   font-family: poppins;
 }
+
+.fotobarang img {
+  width: 300px;
+}
+.fotobarang {
+  margin: auto;
+}
  
 .card-button {
   transform: translate(-50%, 125%);

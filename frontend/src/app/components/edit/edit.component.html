@@ -4,7 +4,11 @@
   <hr>
 <div class="container p-5">
     <form (ngSubmit)="updateInventory()">
-    
+    <div class="row">
+      <div class="fotobarang">
+        <img src="https://backend.insanmuliamalang.sch.id/api/inventory/showpict/{{barang.id}}/picture" alt="Picture of {{barang.nama_barang}}">
+      </div>
+    </div>
       <div class="row">
         <div class="col-25">
           <label for="id_barang">Id Barang</label>
@@ -40,6 +44,7 @@
         <select id="fasilitas" name="fasilitas" [(ngModel)]="barang.fasilitas" required>
           <option value="Kampus 1">Kampus 1</option>
           <option value="Kampus 2">Kampus 2</option>
+          <option value="Fasilitas Karyawan">Fasilitas Karyawan</option>
         </select>
       </div>
     </div>
@@ -133,11 +138,7 @@
           <label for="kondisi">Kondisi</label>
         </div>
         <div class="col-75">
-          <select id="kondisi" name="kondisi" [(ngModel)]="barang.kondisi" required>
-            <option value="Baik">Baik</option>
-            <option value="Rusak">Rusak</option>
-            <option value="Dalam Perbaikan">Dalam Perbaikan</option>
-          </select>
+          <textarea type="text" id="kondisi" name="kondisi" placeholder="Sebutkan jika ada barang yang rusak, jika tidak ada tulis baik"  formControlName="kondisi"></textarea>
         </div>
       </div>
 

@@ -1,46 +1,49 @@
   <app-sidebar>
-  <div class="card">
+    <div class="card">
       <div class="card-details">
         <p class="text-title">Detail Barang</p>
+        <div class="fotobarang">
+          <img src="https://backend.insanmuliamalang.sch.id/api/inventory/showpict/{{barang.id}}/picture" alt="Picture of {{barang.nama_barang}}">
+        </div>
         <p class="text-body">
           <ul>
-            <li>
-              Id Barang : {{barang.id}}
-            </li>
-            <li>
-              Nama : {{barang.nama_barang}}
-            </li>
-            <li>
-              Aksesoris : {{barang.aksesoris}}
-            </li>
-            <li>
-              Fasilitas :  {{barang.fasilitas}}
-            </li>
-            <li>
-              Unit : {{barang.unit}}
-            </li>
-            <li>
-              Sumber Dana : {{barang.dana}}
-            </li>
-            <li>
-              Ruangan/User: {{barang.tempat}}
-            </li>
-            <li>
-              Kategori :  {{barang.jenis}}
-            </li>
-            <li>
-              Jumlah Barang :  {{barang.jumlah}}
-            </li>
-            <li>
-              Tahun pembelian: {{barang.tahun}}
-            </li>
-            <li>
-              Sifat :  {{barang.sifat}}
-            </li>
-            <li>
-              Kondisi :  {{barang.kondisi}}
-            </li>
-          </ul>
+          <li>
+            Id Barang : {{barang.id}}
+          </li>
+          <li>
+            Nama : {{barang.nama_barang}}
+          </li>
+          <li>
+            Aksesoris : {{barang.aksesoris}}
+          </li>
+          <li>
+            Fasilitas :  {{barang.fasilitas}}
+          </li>
+          <li>
+            Unit : {{barang.unit}}
+          </li>
+          <li>
+            Sumber Dana : {{barang.dana}}
+          </li>
+          <li>
+            Ruangan/User: {{barang.tempat}}
+          </li>
+          <li>
+            Kategori :  {{barang.jenis}}
+          </li>
+          <li>
+            Jumlah Barang :  {{barang.jumlah}}
+          </li>
+          <li>
+            Tahun pembelian: {{barang.tahun}}
+          </li>
+          <li>
+            Sifat :  {{barang.sifat}}
+          </li>
+          <li>
+            Kondisi :  {{barang.kondisi}}
+          </li>
+        </ul>
       </div>
     </div>
   

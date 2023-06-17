@@ -40,7 +40,7 @@ ngOnInit(): void {
     jumlah: [Validators.required],
     dana: [''],
     sifat: ['', Validators.required],
-    kondisi: ['', Validators.required],
+    kondisi: [''],
     harga: [],
     unit: ['', Validators.required],
     picture: [File]
@@ -75,7 +75,8 @@ onFileSelected(event: any) {
       .subscribe({
         next:()=>{
           this.toast.success({detail: "BERHASIL!", summary:"Sukses menambah inventaris", duration: 5000});
-          this.router.navigate(['allinventory'])
+          //this.router.navigate(['allinventory'])
+          this.addInventoryForm.reset();
         },
         error:()=>{
           this.toast.error({detail: "ERROR", summary:"Oops, ada Api yang salah!", duration: 5000});

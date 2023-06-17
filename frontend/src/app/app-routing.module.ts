@@ -57,7 +57,7 @@ const routes: Routes = [
   {path: 'soptable', component: SopTableComponent, canActivate:[AuthGuard]},
   {path: 'soptable/ruangan/:tempat', component: SopRuanganComponent, canActivate:[AuthGuard]},
   {path: 'soptable/ruangan/:tempat/sop/:idBarang', component: SopComponent, canActivate:[AuthGuard]},
-  {path: 'allinventory/upload-picture/:idBarang', component: FileUploaderComponent, canActivate: [AuthGuard]}
+  {path: 'allinventory/view/:idBarang', component: ViewComponent, canActivate: [AuthGuard]}
   
 ];
 

@@ -71,7 +71,8 @@ export class AddInventoryKaryawanComponent implements OnInit {
       .subscribe({
         next:()=>{
           this.toast.success({detail: "BERHASIL!", summary:"Sukses menambah inventaris", duration: 5000});
-          this.router.navigate(['allinventory'])
+          this.router.navigate(['add'])
+          // this.addInventoryForm.reset();
         },
         error:()=>{
           this.toast.error({detail: "ERROR", summary:"Oops, ada Api yang salah!", duration: 5000});

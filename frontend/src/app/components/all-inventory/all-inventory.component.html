@@ -26,15 +26,14 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- <tr *ngFor = "let barang of listBarang | filter:searchText"> -->
-                    <tr *ngFor = "let barang of listBarang">
+                <tr *ngFor = "let barang of listBarang | filter:searchText">
                     <td>
                         {{barang.id}}
                     </td>
                     <td id="button-table" scope="row"> 
                         <button type="button" [routerLink]="['edit', barang.id]">Edit</button>                        
                         <button type="button" [routerLink]="['printcard', barang.id]">print</button>
-                        <!-- <button type="button" [routerLink]="['upload-picture', barang.id]">Upoad Foto</button>                          -->
+                        <button type="button" [routerLink]="['view', barang.id]">View</button>                         
                     </td>
                     <td>
                         {{barang.nama_barang}}

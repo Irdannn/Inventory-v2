@@ -1,10 +1,13 @@
 <app-sidebar>
   <hr>
-<div class="card">
-  <div class="card-details">
-    <p class="text-title">Detail Barang</p>
-    <p class="text-body">
-      <ul>
+  <div class="card">
+    <div class="card-details">
+      <p class="text-title">Detail Barang</p>
+      <div class="fotobarang">
+        <img src="https://backend.insanmuliamalang.sch.id/api/inventory/showpict/{{barang.id}}/picture" alt="Picture of {{barang.nama_barang}}">
+      </div>
+      <p class="text-body">
+        <ul>
         <li>
           Id Barang : {{barang.id}}
         </li>
@@ -42,8 +45,8 @@
           Kondisi :  {{barang.kondisi}}
         </li>
       </ul>
+    </div>
   </div>
-</div>
 
 <div class="container p-5">
   <form #form="ngForm" (ngSubmit)="onUpdateAlurbarang()" [formGroup]="updateAlurBarangForm">

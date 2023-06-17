@@ -1,11 +1,12 @@
 <app-sidebar>
-    <div class="container">
       <div class="card">
         <div class="card-details">
           <p class="text-title">Detail Barang</p>
+          <div class="fotobarang">
+            <img src="https://backend.insanmuliamalang.sch.id/api/inventory/showpict/{{barang.id}}/picture" alt="Picture of {{barang.nama_barang}}">
+          </div>
           <p class="text-body">
-            <img src="http://127.0.0.1:8000/api/inventory/showpict/{{barang.id}}/picture" alt="Picture of {{barang.nama_barang}}">
-          <ul>
+            <ul>
             <li>
               Id Barang : {{barang.id}}
             </li>
@@ -43,11 +44,10 @@
               Kondisi :  {{barang.kondisi}}
             </li>
           </ul>
+          <div class="row">
+            <button [routerLink]="['peminjaman']" class="half-button">Peminjaman</button>
+            <button [routerLink]="['laporan']" class="half-button">Laporan</button>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <button [routerLink]="['peminjaman']" class="half-button">Peminjaman</button>
-        <button [routerLink]="['laporan']" class="half-button">Laporan</button>
-      </div>
-    </div>
   </app-sidebar>

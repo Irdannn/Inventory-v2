@@ -52,6 +52,7 @@
             </div>
             <div class="col-75">
               <select id="unit" name="unit" formControlName="unit" required>
+                <option value="SDIT">Yayasan / General</option>
                 <option value="SDIT">SDIT</option>
                 <option value="PAUD">PAUD</option>
                 <option value="SQA">SQA</option>
@@ -194,11 +195,7 @@
               <label for="kondisi">Kondisi</label>
             </div>
             <div class="col-75">
-              <select id="kondisi" name="kondisi" formControlName="kondisi" required>
-                <option value="Baik">Baik</option>
-                <option value="Rusak">Rusak</option>
-                <option value="Dalam Perbaikan">Dalam Perbaikan</option>
-              </select>
+              <textarea type="text" id="kondisi" name="kondisi" placeholder="Sebutkan jika ada barang yang rusak, jika tidak ada tulis baik"  formControlName="kondisi"></textarea>
             </div>
           </div>
   

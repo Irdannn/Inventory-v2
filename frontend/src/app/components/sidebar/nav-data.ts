@@ -6,17 +6,17 @@ export const navbarData = [
     },
     {
         routeLink: '/allinventory',
-        icon: 'fal fa-user',
+        icon: 'fal fa-list',
         label: 'List Barang'
     },
     {
         routeLink: '/add',
-        icon: 'fal fa-users',
+        icon: 'fal fa-layer-plus',
         label: 'Tambah Barang'
     },
     {
         routeLink: '/alurbarang',
-        icon: 'fal fa-pencil-square',
+        icon: 'fal fa-pen',
         label: 'Data Alur Barang'
     },
     {
