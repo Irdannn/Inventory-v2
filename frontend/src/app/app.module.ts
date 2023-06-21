@@ -17,7 +17,7 @@ import { MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { QrCodeModule } from 'ng-qrcode';
 import { NgxFileDropModule } from 'ngx-file-drop';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatProgressBarModule} from '@angular/material/progress-bar';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';

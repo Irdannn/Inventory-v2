@@ -70,7 +70,7 @@ export class SopComponent implements OnInit {
     .subscribe(val=>{
       let idFromToken = this.auth.getIdFromToken()
       this.id=val || idFromToken;
-    })
+    });
   }
 
   onSopbarang(){
