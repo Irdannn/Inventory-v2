@@ -8,7 +8,8 @@ import { Laporan } from '../models/laporan';
 })
 export class LaporanService {
 
-  private baseurl = "https://backend.insanmuliamalang.sch.id/api/laporan/"; 
+  private baseurl = "http://127.0.0.1:8000/api/laporan/"; 
+  // private baseurl = "https://backend.insanmuliamalang.sch.id/api/laporan/"; 
   constructor( private http : HttpClient) { }
 
   getAllLaporan(){

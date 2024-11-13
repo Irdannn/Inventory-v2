@@ -8,7 +8,8 @@ import { AlurBarang } from '../models/alurbarang';
 })
 export class AlurbarangService {
 
-  private baseurl = "https://backend.insanmuliamalang.sch.id/api/alur/"; 
+  private baseurl = "http://127.0.0.1:8000/api/alur/"; 
+  // private baseurl = "https://backend.insanmuliamalang.sch.id/api/alur/"; 
   constructor( private http : HttpClient) { }
 
   getAllalurbarang(){
